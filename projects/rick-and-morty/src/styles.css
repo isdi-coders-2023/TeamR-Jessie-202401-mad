@@ -1,3 +1,8 @@
+:root {
+  --dark-green: #215918;
+  --light-green: #c6ff68;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -7,8 +12,13 @@ body {
   height: 100vh;
   background-image: url(assets/background.png);
   background-size: contain;
+  font-family: 'Roboto', monospace;
 }
 
 ul {
   padding: 0;
+}
+
+li {
+  list-style: none;
 }

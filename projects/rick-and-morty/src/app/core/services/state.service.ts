@@ -39,14 +39,17 @@ export class StateService {
   }
 
   get character() {
+    this.fetchCharacters();
     return this.characterList$.asObservable();
   }
 
   get episode() {
+    this.fetchEpisodes();
     return this.episodeList$.asObservable();
   }
 
   get location() {
+    this.fetchLocations();
     return this.locationList$.asObservable();
   }
 
