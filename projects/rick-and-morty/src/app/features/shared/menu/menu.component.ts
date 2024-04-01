@@ -11,7 +11,7 @@ import { MenuOption } from '../../../core/model/menu-option';
       <ul>
         @for (item of items; track $index) {
         <li>
-          <a [routerLink]="item.path" routerLinkActive="active">{{
+          <a [routerLink]="'/' + item.path" routerLinkActive="active">{{
             item.title
           }}</a>
         </li>

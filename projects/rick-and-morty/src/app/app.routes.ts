@@ -10,7 +10,7 @@ export const routes: Routes = [
   {
     path: 'characters',
     title: 'Characters',
-    loadComponent: () => import('./features/home/home.component'),
+    loadComponent: () => import('./features/characters/characters.component'),
   },
   { path: '**', redirectTo: 'home' },
 ];
