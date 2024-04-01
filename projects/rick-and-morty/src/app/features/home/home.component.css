@@ -1,0 +1,11 @@
+.home-section {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  background-image: url(../../../assets/background.png);
+  background-size: contain;
+
+  header {
+    margin-block-start: 2rem;
+  }
+}
