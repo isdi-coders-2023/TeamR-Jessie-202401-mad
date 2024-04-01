@@ -16,17 +16,13 @@
             "outputPath": "dist/rick-and-morty",
             "index": "projects/rick-and-morty/src/index.html",
             "browser": "projects/rick-and-morty/src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "projects/rick-and-morty/tsconfig.app.json",
             "assets": [
-              "projects/rick-and-morty/src/favicon.ico",
+              "projects/rick-and-morty/src/favicon.svg",
               "projects/rick-and-morty/src/assets"
             ],
-            "styles": [
-              "projects/rick-and-morty/src/styles.css"
-            ],
+            "styles": ["projects/rick-and-morty/src/styles.css"],
             "scripts": []
           },
           "configurations": {
@@ -74,18 +70,13 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "projects/rick-and-morty/tsconfig.spec.json",
             "assets": [
               "projects/rick-and-morty/src/favicon.ico",
               "projects/rick-and-morty/src/assets"
             ],
-            "styles": [
-              "projects/rick-and-morty/src/styles.css"
-            ],
+            "styles": ["projects/rick-and-morty/src/styles.css"],
             "scripts": [],
             "karmaConfig": "projects/rick-and-morty/karma.conf.js"
           }
@@ -103,8 +94,6 @@
     }
   },
   "cli": {
-    "schematicCollections": [
-      "@angular-eslint/schematics"
-    ]
+    "schematicCollections": ["@angular-eslint/schematics"]
   }
 }
