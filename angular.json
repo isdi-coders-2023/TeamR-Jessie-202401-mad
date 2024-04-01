@@ -2,7 +2,105 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {},
+  "projects": {
+    "rick-and-morty": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/rick-and-morty",
+      "sourceRoot": "projects/rick-and-morty/src",
+      "prefix": "jessie",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/rick-and-morty",
+            "index": "projects/rick-and-morty/src/index.html",
+            "browser": "projects/rick-and-morty/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/rick-and-morty/tsconfig.app.json",
+            "assets": [
+              "projects/rick-and-morty/src/favicon.ico",
+              "projects/rick-and-morty/src/assets"
+            ],
+            "styles": [
+              "projects/rick-and-morty/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "rick-and-morty:build:production"
+            },
+            "development": {
+              "buildTarget": "rick-and-morty:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "buildTarget": "rick-and-morty:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/rick-and-morty/tsconfig.spec.json",
+            "assets": [
+              "projects/rick-and-morty/src/favicon.ico",
+              "projects/rick-and-morty/src/assets"
+            ],
+            "styles": [
+              "projects/rick-and-morty/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/rick-and-morty/**/*.ts",
+              "projects/rick-and-morty/**/*.html"
+            ]
+          }
+        }
+      }
+    }
+  },
   "cli": {
     "schematicCollections": [
       "@angular-eslint/schematics"
