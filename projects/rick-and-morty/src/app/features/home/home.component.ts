@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MenuComponent } from '../shared/menu/menu.component';
-import { routes } from '../../app.routes';
 import { MenuOption } from '../../core/model/menu-option';
+import { StateService } from '../../core/services/state.service';
 
 @Component({
   selector: 'jessie-home',
@@ -29,12 +29,7 @@ import { MenuOption } from '../../core/model/menu-option';
 export default class HomeComponent {
   menuOptions: MenuOption[] = [];
 
-  constructor() {
-    this.menuOptions = routes
-      .filter((route) => route.path !== '**' && route.path !== '')
-      .map((route) => ({
-        title: route.title as string,
-        path: route.path as string,
-      }));
+  constructor(private stateSrv: StateService) {
+    this.menuOptions = this.stateSrv.setRoutes();
   }
 }

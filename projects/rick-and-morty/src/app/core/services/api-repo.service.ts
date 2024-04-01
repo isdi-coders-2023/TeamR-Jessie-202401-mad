@@ -1,26 +1,24 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Character, Episode } from '../model/model';
+import { CharacterList, EpisodeList, LocationList } from '../model/model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiRepoService {
   private urlBase = 'https://rickandmortyapi.com/api';
-  constructor(private http: HttpClient) {
-    console.log(this.getCharacters);
+  constructor(private http: HttpClient) {}
+
+  getCharacters(): Observable<CharacterList> {
+    return this.http.get<CharacterList>(`${this.urlBase}/character`);
   }
 
-  getCharacters(): Observable<Character> {
-    return this.http.get<Character>(`${this.urlBase}/character`);
+  getEpisodes(): Observable<EpisodeList> {
+    return this.http.get<EpisodeList>(`${this.urlBase}/episode`);
   }
 
-  getEpisodes(): Observable<Episode> {
-    return this.http.get<Episode>(`${this.urlBase}/episode`);
-  }
-
-  getLocations(): Observable<Location> {
-    return this.http.get<Location>(`${this.urlBase}/location`);
+  getLocations(): Observable<LocationList> {
+    return this.http.get<LocationList>(`${this.urlBase}/location`);
   }
 }
