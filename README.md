@@ -35,4 +35,3 @@ La web tiene un modelo resposive con el fin de ser accesible, manteniendo un per
 Facilitando las labores diarias, el uso de Trello (https://trello.com/b/eDxbwXTr/jessieproject) es indispensable para la organización y gestión de estos.
 
 Se creó también un proyecto en Figma ("https://www.figma.com/file/s6uIYYpab88FQOJxJHb07V/Equipo-Jessie---Rick%26Morty?type=design&mode=design&t=NwCHSu8peOUJbMiA-1")con el fin de servir de guía para los estilos aplicados en la web, guardando en él la paleta de colores, fuentes de texto, ícenos e imágenes.
-
