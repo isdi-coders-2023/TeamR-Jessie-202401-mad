@@ -1,3 +1,18 @@
+export interface CharacterList {
+  info: Info;
+  results: Character[];
+}
+
+export interface EpisodeList {
+  info: Info;
+  results: Episode[];
+}
+
+export interface LocationList {
+  info: Info;
+  results: Location[];
+}
+
 export interface Character {
   id: number;
   name: string;
