@@ -1,4 +1,4 @@
-export interface CharacterModel {
+export interface Character {
   id: number;
   name: string;
   status: string;
@@ -15,7 +15,7 @@ export interface CharacterModel {
   };
 }
 
-export interface LocationsModel {
+export interface Location {
   id: number;
   name: string;
   type: string;
@@ -23,14 +23,14 @@ export interface LocationsModel {
   residents: string[];
 }
 
-export interface EpisodesModel {
+export interface Episode {
   id: number;
   name: string;
   air_date: string;
   episode: string;
 }
 
-export interface InfoModel {
+export interface Info {
   count: number;
   pages: number;
   next: string;
