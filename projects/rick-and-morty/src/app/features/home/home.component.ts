@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { MenuComponent } from '../shared/menu/menu.component';
 import { routes } from '../../app.routes';
 import { MenuOption } from '../../core/model/menu-option';
+import { FooterComponent } from '../shared/footer/footer.component';
 
 @Component({
   selector: 'jessie-home',
   standalone: true,
-  imports: [MenuComponent],
+  imports: [MenuComponent,FooterComponent],
   template: `
     <header>
       <img
@@ -23,6 +24,7 @@ import { MenuOption } from '../../core/model/menu-option';
     <section class="home-section">
       <jessie-menu [items]="menuOptions" />
     </section>
+    <jessie-footer />
   `,
   styleUrl: './home.component.css',
 })
