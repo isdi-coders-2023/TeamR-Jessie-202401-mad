@@ -1,0 +1,43 @@
+footer{
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding-inline: 5vw;
+padding-block: 3rem;
+background-color: #6BCA50;
+font-family: 'Creepster';
+height: 20vh;
+div{
+  display: flex;
+  height: 8vh;
+}
+}
+
+.team-footer{
+  display: flex;
+  gap: 0.5rem;
+  text-wrap: nowrap;
+  align-items: center;
+  font-size: 24px;
+}
+a{
+  color:#E4F960;
+  text-decoration: none;
+  -webkit-text-stroke:1px #004B00;
+}
+
+@media (width > 600px) {
+  footer{
+    padding-inline: 10vh;
+  }
+}
+@media (width > 800px) {
+  footer{
+    padding-inline: 15vh;
+  }
+}
+@media (width > 1000px) {
+  footer{
+    padding-inline: 20vh;
+  }
+}
