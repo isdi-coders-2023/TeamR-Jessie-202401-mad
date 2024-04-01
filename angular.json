@@ -86,7 +86,8 @@
             "styles": [
               "projects/rick-and-morty/src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "karmaConfig": "projects/rick-and-morty/karma.conf.js"
           }
         },
         "lint": {
