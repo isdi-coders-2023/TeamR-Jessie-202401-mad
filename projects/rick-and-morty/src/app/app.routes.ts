@@ -14,8 +14,13 @@ export const routes: Routes = [
   },
   {
     path: 'episodes',
-    title: 'episodes',
+    title: 'Episodes',
     loadComponent: () => import('./features/episodes/episodes.component'),
+  },
+  {
+    path: 'locations',
+    title: 'Locations',
+    loadComponent: () => import('./features/locations/location.component'),
   },
   { path: '**', redirectTo: 'home' },
 ];
