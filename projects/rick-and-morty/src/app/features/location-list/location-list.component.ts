@@ -20,8 +20,8 @@ export class LocationListComponent implements OnInit {
   constructor(private stateSrv: StateService) {}
 
   ngOnInit(): void {
-    this.stateSrv.location.subscribe((locationsList) => {
-      this.LocationList = locationsList;
+    this.stateSrv.getAnyData('location').subscribe((locationsList) => {
+      this.LocationList = locationsList as Location[];
     });
   }
 }
