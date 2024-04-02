@@ -19,8 +19,8 @@ export class EpisodesListComponent implements OnInit {
   constructor(private stateSrv: StateService) {}
 
   ngOnInit(): void {
-    this.stateSrv.episode.subscribe((episodesList) => {
-      this.episodesList = episodesList;
+    this.stateSrv.getAnyData('episode').subscribe((episodesList) => {
+      this.episodesList = episodesList as Episode[];
     });
   }
 }
