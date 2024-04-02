@@ -22,8 +22,8 @@ export class CharacterListComponent implements OnInit {
   constructor(private stateSrv: StateService) {}
 
   ngOnInit(): void {
-    this.stateSrv.character.subscribe((characterList) => {
-      this.characterList = characterList;
+    this.stateSrv.getAnyData('character').subscribe((characterList) => {
+      this.characterList = characterList as Character[];
     });
   }
 }
