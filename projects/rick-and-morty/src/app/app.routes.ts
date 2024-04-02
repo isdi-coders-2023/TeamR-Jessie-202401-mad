@@ -12,5 +12,10 @@ export const routes: Routes = [
     title: 'Characters',
     loadComponent: () => import('./features/characters/characters.component'),
   },
+  {
+    path: 'episodes',
+    title: 'episodes',
+    loadComponent: () => import('./features/episodes/episodes.component'),
+  },
   { path: '**', redirectTo: 'home' },
 ];
