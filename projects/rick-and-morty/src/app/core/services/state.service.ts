@@ -8,6 +8,9 @@ import { routes } from '../../app.routes';
   providedIn: 'root',
 })
 export class StateService {
+  static nextData(nextData: any) {
+    throw new Error('Method not implemented.');
+  }
   private anyList$: BehaviorSubject<Any[]> = new BehaviorSubject<Any[]>([]);
   // private episodeList$: BehaviorSubject<Episode[]> = new BehaviorSubject<
   //   Episode[]
