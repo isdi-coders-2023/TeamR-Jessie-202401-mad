@@ -13,6 +13,4 @@ import { FooterComponent } from './features/shared/footer/footer.component';
   styleUrl: './app.component.css',
   imports: [RouterOutlet, FooterComponent],
 })
-export class AppComponent {
-  title = 'rick-and-morty';
-}
+export class AppComponent {}

@@ -1,12 +1,16 @@
 import { TestBed } from '@angular/core/testing';
 
 import { ApiRepoService } from './api-repo.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('ApiRepoService', () => {
   let service: ApiRepoService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+    });
+
     service = TestBed.inject(ApiRepoService);
   });
 

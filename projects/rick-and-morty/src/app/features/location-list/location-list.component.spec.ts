@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { LocationListComponent } from './location-list.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('LocationsListComponent', () => {
   let component: LocationListComponent;
@@ -7,7 +8,7 @@ describe('LocationsListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LocationListComponent],
+      imports: [LocationListComponent, HttpClientTestingModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(LocationListComponent);
