@@ -8,11 +8,11 @@ fdescribe('PaginationComponent', () => {
   let component: PaginationComponent;
   let fixture: ComponentFixture<PaginationComponent>;
   const mockServ = jasmine.createSpyObj('StateService', ['loadFakeData']);
-  
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [PaginationComponent, HttpClientTestingModule],
-       providers: [{ provide: StateService, useValue: mockServ }],
+      providers: [{ provide: StateService, useValue: mockServ }],
     }).compileComponents();
 
     fixture = TestBed.createComponent(PaginationComponent);
@@ -24,7 +24,7 @@ fdescribe('PaginationComponent', () => {
     expect(component).toBeTruthy();
   });
 
-   it('should call a previous page when click', () =>{
+  it('should call a previous page when click', () =>{
     spyOn(component, 'prevPage');
     const button=fixture.debugElement.queryAll(By.css('button'));
     button[0].triggerEventHandler('click',null);
