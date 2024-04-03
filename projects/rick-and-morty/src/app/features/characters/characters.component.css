@@ -1,8 +1,10 @@
-:host {
+header {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  margin-block-start: 1rem;
+  margin-inline: 1rem;
+  width: 100vw;
 }
 
 p {

@@ -6,9 +6,7 @@ import { FooterComponent } from "./features/shared/footer/footer.component";
     selector: 'jessie-root',
     standalone: true,
     template: `
-    <main>
       <router-outlet />
-    </main>
   `,
     styleUrl: './app.component.css',
     imports: [RouterOutlet, FooterComponent]

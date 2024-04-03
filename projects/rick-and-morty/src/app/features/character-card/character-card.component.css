@@ -1,5 +1,6 @@
 .character-card {
   width: 250px;
+  height: 480px;
   border-radius: 1rem;
   background-color: var(--dark-green);
   padding-block-end: 1rem;
