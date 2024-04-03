@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Character, Episode, Location } from '../model/model';
+import { Any } from '../model/model';
 import { ApiRepoService } from './api-repo.service';
 import { routes } from '../../app.routes';
 
@@ -8,49 +8,41 @@ import { routes } from '../../app.routes';
   providedIn: 'root',
 })
 export class StateService {
-  private characterList$: BehaviorSubject<Character[]> = new BehaviorSubject<
-    Character[]
-  >([]);
-  private episodeList$: BehaviorSubject<Episode[]> = new BehaviorSubject<
-    Episode[]
-  >([]);
-  private locationList$: BehaviorSubject<Location[]> = new BehaviorSubject<
-    Location[]
-  >([]);
+  private anyList$: BehaviorSubject<Any[]> = new BehaviorSubject<Any[]>([]);
+  // private episodeList$: BehaviorSubject<Episode[]> = new BehaviorSubject<
+  //   Episode[]
+  // >([]);
+  // private locationList$: BehaviorSubject<Location[]> = new BehaviorSubject<
+  //   Location[]
+  // >([]);
 
   constructor(private ApiRepoSrv: ApiRepoService) {}
 
-  fetchCharacters() {
-    this.ApiRepoSrv.getCharacters().subscribe((characters) => {
-      this.characterList$.next(characters.results);
+  fetchData(dataType: string) {
+    this.ApiRepoSrv.getData(dataType).subscribe((data) => {
+      this.anyList$.next(data.results);
     });
   }
 
-  fetchEpisodes() {
-    this.ApiRepoSrv.getEpisodes().subscribe((episodes) => {
-      this.episodeList$.next(episodes.results);
-    });
+  getAnyData(dataType: string) {
+    this.fetchData(dataType);
+    return this.anyList$.asObservable();
   }
 
-  fetchLocations() {
-    this.ApiRepoSrv.getLocations().subscribe((locations) => {
-      this.locationList$.next(locations.results);
-    });
+  nextData(dataType: string) {
+    if (this.ApiRepoSrv.page < 42) {
+      this.ApiRepoSrv.page++;
+      this.ApiRepoSrv.getData(dataType);
+      this.fetchData(dataType);
+    }
   }
 
-  get character() {
-    this.fetchCharacters();
-    return this.characterList$.asObservable();
-  }
-
-  get episode() {
-    this.fetchEpisodes();
-    return this.episodeList$.asObservable();
-  }
-
-  get location() {
-    this.fetchLocations();
-    return this.locationList$.asObservable();
+  previousData(dataType: string) {
+    if (this.ApiRepoSrv.page > 1) {
+      this.ApiRepoSrv.page--;
+      this.ApiRepoSrv.getData(dataType);
+      this.fetchData(dataType);
+    }
   }
 
   setRoutes() {

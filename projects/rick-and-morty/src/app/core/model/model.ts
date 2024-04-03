@@ -13,6 +13,10 @@ export interface LocationList {
   results: Location[];
 }
 
+export type AnyList = CharacterList | EpisodeList | LocationList;
+
+export type Any = Character | Episode | Location;
+
 export interface Character {
   id: number;
   name: string;

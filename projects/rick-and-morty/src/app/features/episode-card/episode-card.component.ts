@@ -7,7 +7,7 @@ import { Episode } from '../../core/model/model';
   imports: [],
   template: ` <li>
     <ul>
-      <li class="episode-airDate">Air Date{{ episodeInfo.air_date }}</li>
+      <li class="episode-airDate">air Date {{ episodeInfo.air_date }}</li>
       <li>
         <ul class="episode-name-container">
           <li class="episode-name">Name{{ episodeInfo.name }}</li>
