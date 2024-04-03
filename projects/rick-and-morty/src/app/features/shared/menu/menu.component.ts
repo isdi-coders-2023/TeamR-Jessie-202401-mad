@@ -9,13 +9,13 @@ import { MenuOption } from '../../../core/model/menu-option';
   template: `
     <nav>
       <ul>
-        @for (item of items; track $index) {
+        @for (item of items; track $index) { @if (item.path !== 'home') {
         <li>
           <a [routerLink]="'/' + item.path" routerLinkActive="active">{{
             item.title
           }}</a>
         </li>
-        }
+        } }
       </ul>
     </nav>
   `,

@@ -5,19 +5,23 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   template: `
-<footer>
-<div class="logo-footer">
-<img src="./assets/logo-footer.svg">
-</div>
-<div>
-<span class="team-footer">
-  <h5>MADE BY: </h5> <p><a href=##>Angelo </a> / <a href=##>  Diego </a>/<a href=##> Kevin </a></p>
-</span>
-</div>
-</footer>
+    <footer>
+      <div class="logo-footer">
+        <img src="./assets/img/logo-footer.svg" alt="Footer logo" />
+      </div>
+      <div>
+        <span class="team-footer">
+          <h5>MADE BY:</h5>
+          <p>
+            <a href="##">Angelo </a> / <a href="##"> Diego </a>/<a href="##">
+              Kevin
+            </a>
+          </p>
+          <p></p>
+        </span>
+      </div>
+    </footer>
   `,
-  styleUrl: './footer.component.css'
+  styleUrl: './footer.component.css',
 })
-export class FooterComponent {
-
-}
+export class FooterComponent {}

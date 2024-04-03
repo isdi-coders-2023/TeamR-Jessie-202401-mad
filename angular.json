@@ -20,7 +20,8 @@
             "tsConfig": "projects/rick-and-morty/tsconfig.app.json",
             "assets": [
               "projects/rick-and-morty/src/favicon.svg",
-              "projects/rick-and-morty/src/assets"
+              "projects/rick-and-morty/src/assets",
+              "projects/rick-and-morty/src/_redirects"
             ],
             "styles": ["projects/rick-and-morty/src/styles.css"],
             "scripts": []
@@ -78,7 +79,12 @@
             ],
             "styles": ["projects/rick-and-morty/src/styles.css"],
             "scripts": [],
-            "karmaConfig": "projects/rick-and-morty/karma.conf.js"
+            "karmaConfig": "projects/rick-and-morty/karma.conf.js",
+            "codeCoverageExclude": [
+              "projects/rick-and-morty/**/main.ts",
+              "projects/rick-and-morty/**/app.routes.ts",
+              "projects/rick-and-morty/**/app.config.ts"
+            ]
           }
         },
         "lint": {
@@ -94,9 +100,7 @@
     }
   },
   "cli": {
-    "schematicCollections": [
-      "@angular-eslint/schematics"
-    ],
+    "schematicCollections": ["@angular-eslint/schematics"],
     "analytics": false
   }
 }
