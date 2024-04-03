@@ -20,7 +20,8 @@
             "tsConfig": "projects/rick-and-morty/tsconfig.app.json",
             "assets": [
               "projects/rick-and-morty/src/favicon.svg",
-              "projects/rick-and-morty/src/assets"
+              "projects/rick-and-morty/src/assets",
+              "projects/rick-and-morty/src/_redirects"
             ],
             "styles": ["projects/rick-and-morty/src/styles.css"],
             "scripts": []
