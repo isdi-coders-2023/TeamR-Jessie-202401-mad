@@ -1,0 +1,46 @@
+:host {
+  width: 100%;
+}
+
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ul {
+  flex-direction: row;
+}
+
+li {
+  display: none;
+}
+
+img {
+  margin-inline-start: 1.5rem;
+}
+
+.ham-menu {
+  font-size: 3rem;
+  padding-inline-end: 1.5rem;
+  cursor: pointer;
+}
+
+.close-btn {
+  font-size: 3rem;
+  padding-inline-end: 1.5rem;
+  cursor: pointer;
+  z-index: 2;
+}
+
+@media (width > 500px) {
+  .ham-menu {
+    display: none;
+  }
+}
+
+@media (width < 500px) {
+  .desktop {
+    display: none;
+  }
+}

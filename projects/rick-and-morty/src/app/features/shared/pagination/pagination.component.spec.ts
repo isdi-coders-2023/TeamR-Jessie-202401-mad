@@ -4,7 +4,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { By } from '@angular/platform-browser';
 import { StateService } from '../../../core/services/state.service';
 
-fdescribe('PaginationComponent', () => {
+describe('PaginationComponent', () => {
   let component: PaginationComponent;
   let fixture: ComponentFixture<PaginationComponent>;
   const mockServ = jasmine.createSpyObj('StateService', ['loadFakeData']);
@@ -24,42 +24,42 @@ fdescribe('PaginationComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should call a previous page when click', () =>{
+  it('should call a previous page when click', () => {
     spyOn(component, 'prevPage');
-    const button=fixture.debugElement.queryAll(By.css('button'));
-    button[0].triggerEventHandler('click',null);
+    const button = fixture.debugElement.queryAll(By.css('button'));
+    button[0].triggerEventHandler('click', null);
     fixture.detectChanges();
 
     expect(component.prevPage).toHaveBeenCalled();
   });
-
-  it('should call a next page when click', () =>{
+  -it('should call a next page when click', () => {
     spyOn(component, 'nextPage');
-    const button=fixture.debugElement.queryAll(By.css('button'));
+    const button = fixture.debugElement.queryAll(By.css('button'));
     button[1].triggerEventHandler('click');
     fixture.detectChanges();
 
     expect(component.nextPage).toHaveBeenCalled();
   });
 
-  it('should show us to previous data page when click', () =>{
-    const fakeData= 'previousData';
+  it('should show us to previous data page when click', () => {
+    const fakeData = 'previousData';
     mockServ.loadFakeData.and.returnValue(fakeData);
 
-    const button = fixture.debugElement.queryAll(By.css('button'))
-    button[0].triggerEventHandler('click',null);
+    const button = fixture.debugElement.queryAll(By.css('button'));
+    button[0].triggerEventHandler('click', null);
 
     expect(mockServ.loadFakeData).toHaveBeenCalled;
     expect(mockServ.loadFakeData()).toBe(fakeData);
-  })
+  });
 
-  it('should show us to next data page when click', () =>{
-    const fakeData= 'nextData';
+  it('should show us to next data page when click', () => {
+    const fakeData = 'nextData';
     mockServ.loadFakeData.and.returnValue(fakeData);
 
-    const button = fixture.debugElement.queryAll(By.css('button'))
-    button[1].triggerEventHandler('click',null);
+    const button = fixture.debugElement.queryAll(By.css('button'));
+    button[1].triggerEventHandler('click', null);
 
     expect(mockServ.loadFakeData).toHaveBeenCalled;
     expect(mockServ.loadFakeData()).toBe(fakeData);
-  })})
+  });
+});

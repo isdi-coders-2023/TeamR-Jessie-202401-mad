@@ -1,7 +1,10 @@
 :root {
+  --black: #061306;
   --dark-green: #215918;
   --bright-green: #48e117;
+  --radioactive-green: #87d572;
   --light-green: #c6ff68;
+  --yellow: #e4f960;
   --blue: #42b4ca;
 }
 
@@ -23,4 +26,41 @@ ul {
 
 li {
   list-style: none;
+}
+
+.header-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.desktop {
+  padding-inline-end: 2rem;
+  li a {
+    font-size: 2.2rem;
+  }
+}
+
+.mobile {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  height: 250px;
+  width: 100%;
+  background-color: var(--radioactive-green);
+
+  li a {
+    font-size: 2rem;
+  }
+
+  li a {
+    color: var(--black);
+  }
+
+  @media (width > 500px) {
+    ul {
+      flex-direction: row;
+      gap: 1.5rem;
+    }
+  }
 }
