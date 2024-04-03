@@ -8,12 +8,12 @@ import { StateService } from '../../core/services/state.service';
 @Component({
   selector: 'jessie-home',
   standalone: true,
-  imports: [MenuComponent,FooterComponent],
+  imports: [MenuComponent, FooterComponent],
   template: `
     <header>
       <img
         class="logo"
-        src="../../assets/logo.svg"
+        src="../../assets/img/logo.svg"
         alt=""
         Rick
         and
@@ -25,7 +25,11 @@ import { StateService } from '../../core/services/state.service';
     <section class="home-section">
       <jessie-menu [items]="menuOptions" />
     </section>
-    <jessie-footer />
+    <img
+      class="background-img"
+      src="./assets/img/background-img.png"
+      alt="Background image of Rick"
+    />
   `,
   styleUrl: './home.component.css',
 })

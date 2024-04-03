@@ -2,6 +2,7 @@
   --dark-green: #215918;
   --bright-green: #48e117;
   --light-green: #c6ff68;
+  --blue: #42b4ca;
 }
 
 * {
@@ -11,7 +12,7 @@
 body {
   margin: 0;
   height: 100vh;
-  background-image: url(assets/background.png);
+  background-image: url(assets/img/background.png);
   background-size: contain;
   font-family: 'Roboto', monospace;
 }

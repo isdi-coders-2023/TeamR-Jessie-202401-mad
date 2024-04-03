@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   template: `
     <footer>
       <div class="logo-footer">
-        <img src="./assets/logo-footer.svg" alt="Footer logo" />
+        <img src="./assets/img/logo-footer.svg" alt="Footer logo" />
       </div>
       <div>
         <span class="team-footer">
