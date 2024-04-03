@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CharacterListComponent } from './character-list.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('CharacterListComponent', () => {
   let component: CharacterListComponent;
@@ -8,9 +9,8 @@ describe('CharacterListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CharacterListComponent]
-    })
-    .compileComponents();
+      imports: [CharacterListComponent, HttpClientTestingModule],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CharacterListComponent);
     component = fixture.componentInstance;
@@ -20,4 +20,5 @@ describe('CharacterListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  // it('should render a title received as input'), {};
 });
