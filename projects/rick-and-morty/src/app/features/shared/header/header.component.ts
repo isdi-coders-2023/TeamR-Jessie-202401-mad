@@ -14,10 +14,10 @@ import { routes } from '../../../app.routes';
       <img src="../favicon.svg" alt="">
     </div>
     <div class="menu-header">
-     <jessie-menu [items]="menuOptions"/>
+    <jessie-menu [items]="menuOptions"/>
     </div>
     </header>
-  
+
   `,
     styleUrl: './header.component.css',
     imports: [MenuComponent, RouterModule]
