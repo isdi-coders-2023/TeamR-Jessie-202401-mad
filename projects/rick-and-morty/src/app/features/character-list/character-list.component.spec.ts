@@ -2,7 +2,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CharacterListComponent } from './character-list.component';
 import { Character } from '../../core/model/model';
 import { StateService } from '../../core/services/state.service';
-import { By } from '@angular/platform-browser';
 
 describe('CharacterListComponent', () => {
   let component: CharacterListComponent;
