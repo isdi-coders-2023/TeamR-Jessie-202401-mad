@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Any } from '../model/model';
-import { ApiRepoService } from './api-repo.service';
+import { PublicApiRepoService } from './public-api-repo.service';
 import { routes } from '../../app.routes';
 
 @Injectable({
@@ -16,7 +16,7 @@ export class StateService {
   //   Location[]
   // >([]);
 
-  constructor(private ApiRepoSrv: ApiRepoService) {}
+  constructor(private ApiRepoSrv: PublicApiRepoService) {}
 
   fetchData(dataType: string) {
     this.ApiRepoSrv.getData(dataType).subscribe((data) => {

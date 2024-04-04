@@ -6,7 +6,7 @@ import { AnyList } from '../model/model';
 @Injectable({
   providedIn: 'root',
 })
-export class ApiRepoService {
+export class PublicApiRepoService {
   private urlBase = 'https://rickandmortyapi.com/api';
   page: number = 1;
 
