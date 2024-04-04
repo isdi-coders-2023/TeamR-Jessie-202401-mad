@@ -65,7 +65,9 @@ export class StateService {
 
   deleteCharacter(id: number) {
     this.PrivateApiRepoSrv.deleteCharacterUrl(id).subscribe(() => {
-      console.log('Character deleted successfully');
+      this.PrivateApiRepoSrv.getPrivateData().subscribe((data) => {
+        this.privateList$.next(data);
+      });
     });
   }
 
