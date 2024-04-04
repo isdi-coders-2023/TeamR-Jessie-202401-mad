@@ -4,7 +4,7 @@ import { provideRouter } from '@angular/router';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { MenuOption } from '../../../core/model/menu-option';
 
-fdescribe('HeaderComponent', () => {
+describe('HeaderComponent', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
 
@@ -12,6 +12,7 @@ fdescribe('HeaderComponent', () => {
     { title: 'Characters', path: '/characters' },
     { title: 'Episodes', path: '/episodes' },
     { title: 'Locations', path: '/locations' },
+    { title: 'Favorites', path: '/favorites' },
   ];
 
   beforeEach(async () => {
