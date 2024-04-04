@@ -6,7 +6,7 @@ import { EpisodeCardComponent } from '../episode-card/episode-card.component';
 @Component({
     selector: 'jessie-episodes-list',
     standalone: true,
-    template: ` 
+    template: `
   <ul class="episode-list">
     @for (episode of episodesList; track $index) {
     <jessie-episode-card [episodeInfo]="episode" />
