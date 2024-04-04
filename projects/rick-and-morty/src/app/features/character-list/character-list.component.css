@@ -1,5 +1,7 @@
 .character-list {
   display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  justify-content: space-around;
+  padding-inline: 10rem;
+  flex-wrap: wrap;
+  gap: 3rem;
 }

@@ -7,7 +7,7 @@ import { Character } from '../../core/model/model';
   imports: [],
   template: `
     <li class="character-card">
-      <ul>
+      <ul class="info-img">
         <li>
           <img
             class="character-img"
@@ -15,6 +15,8 @@ import { Character } from '../../core/model/model';
             alt="Imagen de {{ characterInfo.name }}"
           />
         </li>
+      </ul>
+      <ul class="info-text">
         <li>
           <ul class="character-name-container">
             <li class="character-name">{{ characterInfo.name }}</li>
@@ -32,6 +34,8 @@ import { Character } from '../../core/model/model';
             </li>
           </ul>
         </li>
+      </ul>
+      <ul class="more-info-container">
         <li class="character-species">Species: {{ characterInfo.species }}</li>
         <li class="character-gender">Gender: {{ characterInfo.gender }}</li>
         <li class="character-location">

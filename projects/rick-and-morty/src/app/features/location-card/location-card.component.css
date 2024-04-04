@@ -1,3 +1,31 @@
-li {
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 450px;
+  height: 100px;
+  border-radius: 1rem;
+  background-color: var(--dark-green);
+  padding-block: 1rem;
+  padding-inline: 1rem;
   color: white;
+  gap: 5px;
+}
+
+:root {
+  li:not(:first-child) {
+    color: white;
+  }
+}
+
+.episode-name-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.episode-name {
+  font-family: 'Creepster', monospace;
+  font-size: 1.5rem;
+  color: var(--light-green);
 }

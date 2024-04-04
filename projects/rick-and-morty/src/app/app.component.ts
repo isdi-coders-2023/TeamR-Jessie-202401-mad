@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { FooterComponent } from './features/shared/footer/footer.component';
 
 @Component({
   selector: 'jessie-root',
@@ -11,6 +10,6 @@ import { FooterComponent } from './features/shared/footer/footer.component';
     </main>
   `,
   styleUrl: './app.component.css',
-  imports: [RouterOutlet, FooterComponent],
+  imports: [RouterOutlet],
 })
 export class AppComponent {}

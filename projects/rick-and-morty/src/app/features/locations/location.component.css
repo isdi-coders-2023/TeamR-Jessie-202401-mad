@@ -1,1 +1,10 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
 
+p {
+  color: white;
+}

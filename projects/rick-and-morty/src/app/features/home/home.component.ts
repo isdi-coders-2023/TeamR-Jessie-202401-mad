@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
 import { MenuComponent } from '../shared/menu/menu.component';
 import { MenuOption } from '../../core/model/menu-option';
-
-import { FooterComponent } from '../shared/footer/footer.component';
 import { StateService } from '../../core/services/state.service';
 
 @Component({
   selector: 'jessie-home',
   standalone: true,
-  imports: [MenuComponent, FooterComponent],
+  imports: [MenuComponent],
   template: `
     <header>
       <img
