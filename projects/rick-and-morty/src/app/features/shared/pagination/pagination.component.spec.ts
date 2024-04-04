@@ -7,11 +7,11 @@ import { StateService } from '../../../core/services/state.service';
 describe('PaginationComponent', () => {
   let component: PaginationComponent;
   let fixture: ComponentFixture<PaginationComponent>;
-  const mockServ = jasmine.createSpyObj('StateService', ['loadFakeData']);
+  const mockServ = jasmine.createSpyObj('StateService', ['nextData', 'previousData']);
 
-  beforeEach(async () => {
+ beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PaginationComponent, HttpClientTestingModule],
+      imports: [HttpClientTestingModule, PaginationComponent],
       providers: [{ provide: StateService, useValue: mockServ }],
     }).compileComponents();
 
@@ -27,7 +27,7 @@ describe('PaginationComponent', () => {
   it('should call a previous page when click', () => {
     spyOn(component, 'prevPage');
     const button = fixture.debugElement.queryAll(By.css('button'));
-    button[0].triggerEventHandler('click', null);
+    button[0].triggerEventHandler('click');
     fixture.detectChanges();
 
     expect(component.prevPage).toHaveBeenCalled();
@@ -43,23 +43,24 @@ describe('PaginationComponent', () => {
 
   it('should show us to previous data page when click', () => {
     const fakeData = 'previousData';
-    mockServ.loadFakeData.and.returnValue(fakeData);
+    mockServ.previousData.and.returnValue(fakeData);
 
     const button = fixture.debugElement.queryAll(By.css('button'));
-    button[0].triggerEventHandler('click', null);
+    button[0].triggerEventHandler('click');
 
-    expect(mockServ.loadFakeData).toHaveBeenCalled;
-    expect(mockServ.loadFakeData()).toBe(fakeData);
+    expect(mockServ.previousData).toHaveBeenCalled;
+    expect(mockServ.previousData()).toBe(fakeData);
   });
 
   it('should show us to next data page when click', () => {
     const fakeData = 'nextData';
-    mockServ.loadFakeData.and.returnValue(fakeData);
+    mockServ.nextData.and.returnValue(fakeData);
 
     const button = fixture.debugElement.queryAll(By.css('button'));
-    button[1].triggerEventHandler('click', null);
+    button[1].triggerEventHandler('click');
 
-    expect(mockServ.loadFakeData).toHaveBeenCalled;
-    expect(mockServ.loadFakeData()).toBe(fakeData);
+    expect(mockServ.nextData).toHaveBeenCalled;
+    expect(mockServ.nextData()).toBe(fakeData);
   });
 });
+
