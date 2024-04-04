@@ -9,7 +9,7 @@ describe('PaginationComponent', () => {
   let fixture: ComponentFixture<PaginationComponent>;
   const mockServ = jasmine.createSpyObj('StateService', ['nextData', 'previousData']);
 
- beforeEach(async () => {
+  beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HttpClientTestingModule, PaginationComponent],
       providers: [{ provide: StateService, useValue: mockServ }],
