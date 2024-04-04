@@ -17,6 +17,7 @@ import { Character } from '../../core/model/model';
     imports: [CharacterListComponent, PaginationComponent, HeaderComponent, FooterComponent]
 })
 
+
 export default class CharactersComponent implements OnInit {
   characterList: Character[] = [];
 
@@ -26,5 +27,4 @@ export default class CharactersComponent implements OnInit {
     this.stateSrv.getAnyData('character').subscribe((characterList) => {
       this.characterList = characterList as Character[];
     });
-  }
-}
+  }}

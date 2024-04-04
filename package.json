@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test --code-coverage --browsers=ChromeHeadless",
     "test:prod": "ng test --code-coverage --no-watch --browsers=ChromeHeadless",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "server": "json-server ./projects/rick-and-morty/src/app/core/server/db.json"
   },
   "prettier": {
     "singleQuote": true

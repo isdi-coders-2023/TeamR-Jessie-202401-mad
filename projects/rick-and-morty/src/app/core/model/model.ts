@@ -13,6 +13,10 @@ export interface LocationList {
   results: Location[];
 }
 
+export interface PrivateList {
+  favorites: Character[];
+}
+
 export type AnyList = CharacterList | EpisodeList | LocationList;
 
 export type Any = Character | Episode | Location;
