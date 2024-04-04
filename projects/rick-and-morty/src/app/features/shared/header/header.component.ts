@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MenuComponent } from '../menu/menu.component';
 import { RouterModule } from '@angular/router';
 import { MenuOption } from '../../../core/model/menu-option';
-import { routes } from '../../../app.routes';
+import { StateService } from '../../../core/services/state.service';
 
 @Component({
   selector: 'jessie-header',
@@ -46,12 +46,7 @@ export class HeaderComponent {
   menuOptions: MenuOption[] = [];
   menuVisible: boolean = false;
 
-  constructor() {
-    this.menuOptions = routes
-      .filter((route) => route.path !== '**' && route.path !== '')
-      .map((route) => ({
-        title: route.title as string,
-        path: route.path as string,
-      }));
+  constructor(private stateSrv: StateService) {
+    this.menuOptions = this.stateSrv.setRoutes();
   }
 }
