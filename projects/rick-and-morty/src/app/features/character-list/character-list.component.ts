@@ -17,6 +17,15 @@ import { StateService } from '../../core/services/state.service';
           (click)="deleteCharacter(character.id)"
           (keyup.enter)="deleteCharacter(character.id)"
         ></i>
+        } @if (!isCharacterPriv) {
+        <i
+          class="fa-{{
+            !character.favorite ? 'regular' : 'solid'
+          }} fa-heart favorite-btn"
+          tabindex="0"
+          (click)="addFavorite(character)"
+          (keyup.enter)="addFavorite(character)"
+        ></i>
         }
         <jessie-character-card [characterInfo]="character" />
       </li>
@@ -34,5 +43,14 @@ export class CharacterListComponent {
 
   deleteCharacter(id: number) {
     this.stateSrv.deleteCharacter(id);
+  }
+
+  addFavorite(character: Character) {
+    if (!character.favorite) {
+      character.favorite = true;
+      this.stateSrv.addFavorite(character);
+    } else {
+      console.log('already favorite!');
+    }
   }
 }

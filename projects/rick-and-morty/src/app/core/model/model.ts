@@ -36,6 +36,7 @@ export interface Character {
     name: string;
     url: string;
   };
+  favorite?: false | true;
 }
 
 export interface Location {

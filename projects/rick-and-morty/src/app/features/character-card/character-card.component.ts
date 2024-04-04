@@ -6,6 +6,7 @@ import { Character } from '../../core/model/model';
   standalone: true,
   imports: [],
   template: `
+    @if (characterInfo) {
     <ul class="character-ul">
       <li>
         <img
@@ -16,7 +17,9 @@ import { Character } from '../../core/model/model';
       </li>
       <li>
         <ul class="character-name-container">
+          @if (characterInfo.name) {
           <li class="character-name">{{ characterInfo.name }}</li>
+          }
           <li>
             <ul class="character-status-container">
               <li class="character-status">{{ characterInfo.status }}</li>
@@ -33,10 +36,13 @@ import { Character } from '../../core/model/model';
       </li>
       <li class="character-species">Species: {{ characterInfo.species }}</li>
       <li class="character-gender">Gender: {{ characterInfo.gender }}</li>
+      @if (characterInfo.location) {
       <li class="character-location">
         Location: {{ characterInfo.location.name }}
       </li>
+      }
     </ul>
+    }
   `,
   styleUrl: './character-card.component.css',
 })

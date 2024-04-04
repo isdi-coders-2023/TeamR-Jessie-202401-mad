@@ -61,7 +61,7 @@ describe('PrivateApiRepoService', () => {
     const req = httpMock.expectOne(
       `http://localhost:3000/favorites/${testCharacter.id}`
     );
-    expect(req.request.method).toBe('PUT');
+    expect(req.request.method).toBe('PATCH');
     req.flush(testCharacter);
   });
 
