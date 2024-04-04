@@ -21,4 +21,25 @@ describe('CharacterCardComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render character information', () => {
+    const characterInfo: Character = {
+      id: 1,
+      name: 'Rick Sanchez',
+      status: 'Alive',
+      species: 'Human',
+      gender: 'Male',
+      origin: { name: '', url: '' },
+      image: 'https://example.com/rick.png',
+      location: { name: '', url: 'Earth' },
+    };
+
+    component.characterInfo = characterInfo;
+    fixture.detectChanges();
+
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('.character-name').textContent).toContain(
+      'Rick Sanchez'
+    );
+  });
 });
