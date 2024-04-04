@@ -32,7 +32,7 @@ describe('PaginationComponent', () => {
 
     expect(component.prevPage).toHaveBeenCalled();
   });
-  -it('should call a next page when click', () => {
+  it('should call a next page when click', () => {
     spyOn(component, 'nextPage');
     const button = fixture.debugElement.queryAll(By.css('button'));
     button[1].triggerEventHandler('click');
