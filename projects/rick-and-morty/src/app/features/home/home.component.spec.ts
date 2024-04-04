@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import HomeComponent from './home.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { provideRouter } from '@angular/router';
@@ -21,5 +20,13 @@ describe('HomeComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should have correct menu options routes', () => {
+    const menuOptionsEd = component.menuOptions;
+    expect(menuOptionsEd.length).toBeGreaterThan(0);
+    for (const option of menuOptionsEd) {
+      expect(option.path).toBeTruthy();
+    }
   });
 });
