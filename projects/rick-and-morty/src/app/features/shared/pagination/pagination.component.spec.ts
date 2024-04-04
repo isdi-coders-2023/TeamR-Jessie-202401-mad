@@ -63,4 +63,3 @@ describe('PaginationComponent', () => {
     expect(mockServ.nextData()).toBe(fakeData);
   });
 });
-
