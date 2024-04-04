@@ -10,7 +10,7 @@ describe('MenuComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RouterModule],
-       providers: [
+      providers: [
         {
           provide: ActivatedRoute,
           useValue: {
@@ -52,7 +52,7 @@ describe('MenuComponent', () => {
     fixture.detectChanges();
 
     const linkElement = fixture.debugElement.nativeElement.querySelector('a');
-    
+
     expect(linkElement.getAttribute('ng-reflect-router-link')).toBe('/info');
   });
 })
