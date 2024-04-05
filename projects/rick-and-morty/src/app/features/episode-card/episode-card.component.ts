@@ -5,7 +5,7 @@ import { Episode } from '../../core/model/model';
   selector: 'jessie-episode-card',
   standalone: true,
   imports: [],
-  template: ` 
+  template: `
   <li>
     <ul>
       <li>

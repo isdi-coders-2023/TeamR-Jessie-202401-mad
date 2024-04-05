@@ -13,21 +13,20 @@ describe('CharacterListComponent', () => {
     TestBed.configureTestingModule({
     imports: [CharacterListComponent, CharacterCardComponent],
     providers: [{ provide: StateService, useValue: mockServ }],
-     }).compileComponents();
-    
+    }).compileComponents();
+
     fixture = TestBed.createComponent(CharacterListComponent);
     component = fixture.componentInstance;
     })
-     
+
     it('should create', () => {
-     expect(component).toBeTruthy();
-   });
+    expect(component).toBeTruthy();
+  });
 
-   it('should call stateSrv.deleteCharacter with correct id', () => {
-       const characterId = 1;
-       component.characterList = [];
-       component.deleteCharacter(characterId);
-       expect(mockServ.deleteCharacter).toHaveBeenCalled();
-     });
+  it('should call stateSrv.deleteCharacter with correct id', () => {
+      const characterId = 1;
+      component.characterList = [];
+      component.deleteCharacter(characterId);
+      expect(mockServ.deleteCharacter).toHaveBeenCalled();
+    });
   })
-

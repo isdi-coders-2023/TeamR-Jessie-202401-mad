@@ -7,7 +7,7 @@ import { PaginationComponent } from "../shared/pagination/pagination.component";
 @Component({
     selector: 'jessie-locations',
     standalone: true,
-    template: ` 
+    template: `
     <jessie-header />
     <jessie-pagination [dataType]="'location'"/>
     <jessie-location-list />
