@@ -7,7 +7,7 @@ import { FooterComponent } from "../shared/footer/footer.component";
 @Component({
     selector: 'jessie-episodes',
     standalone: true,
-    template: ` 
+    template: `
   <jessie-header />
   <jessie-pagination [dataType]="'episode'"/>
   <jessie-episodes-list />

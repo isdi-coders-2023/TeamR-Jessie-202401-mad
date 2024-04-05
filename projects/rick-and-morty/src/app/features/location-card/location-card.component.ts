@@ -5,7 +5,7 @@ import { Location } from '../../core/model/model';
   selector: 'jessie-location-card',
   standalone: true,
   imports: [],
-  template: ` 
+  template: `
   <li>
     <ul>
       <li>
