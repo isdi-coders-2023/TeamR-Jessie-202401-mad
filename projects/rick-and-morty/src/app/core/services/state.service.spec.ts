@@ -1,19 +1,26 @@
 import { TestBed } from '@angular/core/testing';
 
 import { StateService } from './state.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import {
+  HttpClientTestingModule,
+  HttpTestingController,
+} from '@angular/common/http/testing';
 import { PrivateApiRepoService } from './private-api-repo.service';
-import { Character } from '../model/model';
+import { AnyList, Character } from '../model/model';
 import { BehaviorSubject, of } from 'rxjs';
+import { PublicApiRepoService } from './public-api-repo.service';
 
 describe('StateService', () => {
   let stateService: StateService;
   let privateApiRepoServiceSpy: jasmine.SpyObj<PrivateApiRepoService>;
+  let publicApiRepoService: PublicApiRepoService;
 
   beforeEach(() => {
     const spy = jasmine.createSpyObj('PrivateApiRepoService', [
       'createCharacter',
       'getPrivateData',
+      'nextData',
+      'previusData',
     ]);
 
     TestBed.configureTestingModule({
@@ -21,10 +28,13 @@ describe('StateService', () => {
       providers: [
         StateService,
         { provide: PrivateApiRepoService, useValue: spy },
+        PublicApiRepoService,
+        HttpTestingController,
       ],
     });
 
     stateService = TestBed.inject(StateService);
+    publicApiRepoService = TestBed.inject(PublicApiRepoService);
     privateApiRepoServiceSpy = TestBed.inject(
       PrivateApiRepoService
     ) as jasmine.SpyObj<PrivateApiRepoService>;
@@ -99,5 +109,18 @@ describe('StateService', () => {
     stateService.getPrivateData().subscribe((data) => {
       expect(data).toContain(characterToAdd);
     });
+  });
+
+  it('should fetch next data', () => {
+    spyOn(publicApiRepoService, 'getData').and.returnValue(of({} as AnyList));
+    stateService.nextData('');
+    expect(publicApiRepoService.getData).toHaveBeenCalled();
+    expect(publicApiRepoService.page).toEqual(2);
+  });
+
+  it('should fetch previous data', () => {
+    spyOn(publicApiRepoService, 'getData').and.returnValue(of({} as AnyList));
+    expect(() => stateService.previousData('')).toThrowError('Cannot go back');
+    expect(publicApiRepoService.page).toEqual(1);
   });
 });
