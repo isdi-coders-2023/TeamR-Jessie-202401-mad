@@ -28,9 +28,8 @@ export const routes: Routes = [
     loadComponent: () => import('./features/favorites/favorites.component'),
   },
   {
-    path: 'error',
+    path: '**',
     title: 'Error',
     loadComponent: () => import('./features/error-page/error-page.component'),
   },
-  { path: '**', redirectTo: 'error' },
 ];
