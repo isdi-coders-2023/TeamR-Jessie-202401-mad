@@ -4,15 +4,22 @@ import { PaginationComponent } from '../shared/pagination/pagination.component';
 import { HeaderComponent } from '../shared/header/header.component';
 import { StateService } from '../../core/services/state.service';
 import { Character } from '../../core/model/model';
+import { SearchbarComponent } from '../shared/searchbar/searchbar.component';
 
 @Component({
   selector: 'jessie-characters',
   standalone: true,
   template: ` <jessie-header />
+    <jessie-searchbar />
     <jessie-pagination [dataType]="'character'" />
     <jessie-character-list [characterList]="characterList" />`,
   styleUrl: './characters.component.css',
-  imports: [CharacterListComponent, PaginationComponent, HeaderComponent],
+  imports: [
+    CharacterListComponent,
+    PaginationComponent,
+    HeaderComponent,
+    SearchbarComponent,
+  ],
 })
 export default class CharactersComponent implements OnInit {
   characterList: Character[] = [];
