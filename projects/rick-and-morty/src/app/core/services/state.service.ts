@@ -71,6 +71,14 @@ export class StateService {
     });
   }
 
+  addFavorite(character: Character) {
+    this.PrivateApiRepoSrv.createCharacter(character).subscribe(() => {
+      this.PrivateApiRepoSrv.getPrivateData().subscribe((data) => {
+        this.privateList$.next(data);
+      });
+    });
+  }
+
   setRoutes() {
     return routes
       .filter((route) => route.path !== '**' && route.path !== '')

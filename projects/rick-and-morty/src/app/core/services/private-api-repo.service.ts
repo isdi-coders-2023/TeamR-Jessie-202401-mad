@@ -23,7 +23,7 @@ export class PrivateApiRepoService {
 
   updateCharacter(item: Character): Observable<Character> {
     const url = `${this.privUrl}/${item.id}`;
-    return this.http.put<Character>(url, item);
+    return this.http.patch<Character>(url, item);
   }
 
   createCharacter(item: Character): Observable<Character> {
