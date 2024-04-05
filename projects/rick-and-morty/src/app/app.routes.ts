@@ -29,7 +29,6 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    title: 'Error',
     loadComponent: () => import('./features/error-page/error-page.component'),
   },
 ];
