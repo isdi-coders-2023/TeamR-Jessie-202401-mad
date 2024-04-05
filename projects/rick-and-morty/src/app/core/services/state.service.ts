@@ -87,4 +87,20 @@ export class StateService {
         path: route.path as string,
       }));
   }
+
+  filterProperties(dataType: string, property: string): boolean {
+    switch (dataType) {
+      case 'character':
+        if (
+          property === 'status' ||
+          property === 'gender' ||
+          property === 'species'
+        ) {
+          return true;
+        }
+        return false;
+      default:
+        return false;
+    }
+  }
 }

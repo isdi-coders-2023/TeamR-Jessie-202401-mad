@@ -1,0 +1,29 @@
+.filter {
+  position: relative;
+  display: flex;
+  background-color: var(--radioactive-green);
+  border-radius: 1rem;
+  margin-block-end: 0.5rem;
+  padding-block: 0.2rem;
+  padding-inline: 0.3rem; /* Add padding to make the whole div clickable */
+
+  label {
+    display: block; /* Ensure label takes full width */
+    padding-inline: 0.5rem;
+  }
+
+  select {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer; /* Change cursor to pointer to indicate clickable */
+    z-index: 1; /* Ensure the select is clickable */
+  }
+
+  i {
+    padding-inline-end: 0.2rem;
+  }
+}

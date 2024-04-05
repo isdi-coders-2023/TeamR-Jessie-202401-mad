@@ -5,12 +5,18 @@ import { HeaderComponent } from '../shared/header/header.component';
 import { StateService } from '../../core/services/state.service';
 import { Character } from '../../core/model/model';
 import { SearchbarComponent } from '../shared/searchbar/searchbar.component';
+import { FilterComponent } from '../shared/filter/filter.component';
+import { FilterFormComponent } from '../shared/filter-form/filter-form.component';
 
 @Component({
   selector: 'jessie-characters',
   standalone: true,
   template: ` <jessie-header />
     <jessie-searchbar />
+    <jessie-filter-form
+      [properties]="characterProperties"
+      [dataType]="'character'"
+    />
     <jessie-pagination [dataType]="'character'" />
     <jessie-character-list [characterList]="characterList" />`,
   styleUrl: './characters.component.css',
@@ -19,16 +25,23 @@ import { SearchbarComponent } from '../shared/searchbar/searchbar.component';
     PaginationComponent,
     HeaderComponent,
     SearchbarComponent,
+    FilterComponent,
+    FilterFormComponent,
   ],
 })
 export default class CharactersComponent implements OnInit {
   characterList: Character[] = [];
+  characterProperties: string[] = [];
+  propertyOptions: { [key: string]: string[] } = {};
 
   constructor(private stateSrv: StateService) {}
 
   ngOnInit(): void {
     this.stateSrv.getAnyData('character').subscribe((characterList) => {
       this.characterList = characterList as Character[];
+      if (this.characterList.length > 0) {
+        this.characterProperties = Object.keys(this.characterList[0]);
+      }
     });
   }
 }
