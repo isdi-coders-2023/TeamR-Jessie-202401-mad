@@ -60,6 +60,8 @@ export class StateService {
       this.ApiRepoSrv.page--;
       this.ApiRepoSrv.getData(dataType);
       this.fetchData(dataType);
+    } else {
+      throw new Error('Cannot go back'); // Throw an error if the condition doesn't apply
     }
   }
 
