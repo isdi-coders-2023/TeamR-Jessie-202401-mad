@@ -1,11 +1,17 @@
-.character-ul {
+character-card {
+  width: 300px;
+  border-radius: 1rem;
+  background-color: var(--dark-green);
+  padding-block-end: 1rem;
+  height: 500px;
+  color: white;
+}
+
+.character-card > ul {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 1rem;
-
-  li:not(:first-child) {
-    padding-inline: 0.8rem;
-  }
 }
 
 .character-img {
@@ -16,8 +22,10 @@
 
 .character-name-container {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  padding-block: 0.5rem;
+  padding-inline: 0.5rem;
 }
 
 .character-name {
@@ -54,4 +62,19 @@
 
 .character-location {
   padding-block-end: 1rem;
+}
+
+.info-text,
+.more-info-container{
+  display: flex;
+  padding-bottom: 0.5rem;
+  padding-inline: 0.5rem;
+  color: white;
+}
+
+
+.more-info-container{
+flex-direction: column;
+justify-content: center ;
+padding-inline: 0.5rem;
 }
