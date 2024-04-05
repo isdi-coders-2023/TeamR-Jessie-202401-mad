@@ -1,1 +1,7 @@
-
+.location-list{
+  display: flex;
+  justify-content: space-around;
+  padding-inline: 10rem;
+  flex-wrap: wrap;
+  gap: 5rem;
+}
