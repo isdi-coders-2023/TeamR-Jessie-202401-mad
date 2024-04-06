@@ -21,11 +21,10 @@ export class PublicApiRepoService {
   getFilteredCharacterData(
     status: string = '',
     species: string = '',
-    gender: string = '',
-    location: string = ''
+    gender: string = ''
   ) {
     return this.http.get<CharacterList>(
-      `${this.urlBase}/character?page=${this.page}&status=${status}&species=${species}&gender=${gender}&location=${location}`
+      `${this.urlBase}/character?page=${this.page}&status=${status}&species=${species}&gender=${gender}`
     );
   }
 }

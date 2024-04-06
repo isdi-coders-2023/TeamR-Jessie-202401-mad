@@ -1,4 +1,10 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+} from '@angular/core';
 import { FilterComponent } from '../filter/filter.component';
 import { StateService } from '../../../core/services/state.service';
 import { FormsModule } from '@angular/forms';
@@ -7,16 +13,17 @@ import { FormsModule } from '@angular/forms';
   selector: 'jessie-filter-form',
   standalone: true,
   template: `
-    <form class="filter-form" (ngSubmit)="onSubmit()" action="">
+    <form class="filter-form" #filterForm="ngForm" (ngSubmit)="onSubmit()">
       <div class="filter-group">
         @for (property of filteredProperties; track $index){
         <jessie-filter
           [name]="property"
-          (selectedChange)="handleSelected($event, property)"
+          [dataType]="'character'"
+          (valueChange)="onFilteredValueChanged($event, property)"
         />
         }
       </div>
-      <input class="filter-btn" type="submit" value="Aplicar filtros" />
+      <button class="filter-btn" type="submit">Aplicar filtros</button>
     </form>
   `,
   styleUrl: './filter-form.component.css',
@@ -26,7 +33,9 @@ export class FilterFormComponent implements OnChanges {
   @Input() dataType!: string;
   @Input() properties!: string[];
   filteredProperties!: string[];
-  selectedValues: { [key: string]: string } = {};
+  filteredValues: { [key: string]: string } = {};
+  @Output() filterValuesChange: EventEmitter<{ [key: string]: string }> =
+    new EventEmitter<{ [key: string]: string }>();
 
   constructor(private stateSrv: StateService) {}
 
@@ -34,18 +43,17 @@ export class FilterFormComponent implements OnChanges {
     this.filteredProperties = this.properties.filter((p) =>
       this.filterProperties(p)
     );
-    this.onSubmit();
   }
 
   filterProperties(property: string): boolean {
     return this.stateSrv.filterProperties(this.dataType, property);
   }
 
-  onSubmit(): void {
-    console.log(this.selectedValues);
+  onFilteredValueChanged(value: string, property: string) {
+    this.filteredValues[property] = value;
   }
 
-  handleSelected(selected: string, property: string): void {
-    this.selectedValues = { ...this.selectedValues, [property]: selected };
+  onSubmit() {
+    this.filterValuesChange.emit(this.filteredValues);
   }
 }

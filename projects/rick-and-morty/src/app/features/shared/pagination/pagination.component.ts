@@ -22,14 +22,15 @@ import { StateService } from '../../../core/services/state.service';
 })
 export class PaginationComponent {
   @Input() dataType!: string;
+  @Input() filteredValues: { [key: string]: string } = {};
 
   constructor(private stateSrv: StateService) {}
 
   prevPage(dataType: string) {
-    this.stateSrv.previousData(dataType);
+    this.stateSrv.previousData(dataType, this.filteredValues);
   }
 
   nextPage(dataType: string) {
-    this.stateSrv.nextData(dataType);
+    this.stateSrv.nextData(dataType, this.filteredValues);
   }
 }

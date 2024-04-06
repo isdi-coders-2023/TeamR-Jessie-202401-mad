@@ -16,8 +16,12 @@ import { FilterFormComponent } from '../shared/filter-form/filter-form.component
     <jessie-filter-form
       [properties]="characterProperties"
       [dataType]="'character'"
+      (filterValuesChange)="onFilterValuesChange($event)"
     />
-    <jessie-pagination [dataType]="'character'" />
+    <jessie-pagination
+      [dataType]="'character'"
+      [filteredValues]="filteredValues"
+    />
     <jessie-character-list [characterList]="characterList" />`,
   styleUrl: './characters.component.css',
   imports: [
@@ -33,6 +37,7 @@ export default class CharactersComponent implements OnInit {
   characterList: Character[] = [];
   characterProperties: string[] = [];
   propertyOptions: { [key: string]: string[] } = {};
+  filteredValues: { [key: string]: string } = {};
 
   constructor(private stateSrv: StateService) {}
 
@@ -43,5 +48,14 @@ export default class CharactersComponent implements OnInit {
         this.characterProperties = Object.keys(this.characterList[0]);
       }
     });
+  }
+
+  onFilterValuesChange(filteredValues: { [key: string]: string }) {
+    this.stateSrv
+      .getFilteredCharacterData(filteredValues)
+      .subscribe((characterList) => {
+        this.filteredValues = filteredValues;
+        this.characterList = characterList as Character[];
+      });
   }
 }

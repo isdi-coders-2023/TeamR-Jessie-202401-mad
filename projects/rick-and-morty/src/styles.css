@@ -64,25 +64,3 @@ li {
     }
   }
 }
-
-.filter-form {
-  margin-block-end: 2rem;
-}
-
-.filter-group {
-  width: 250px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.filter-btn {
-  background-color: var(--bright-green);
-  border: 0;
-  border-radius: 2rem;
-  margin-block: 0.5rem;
-  padding-block: 0.5rem;
-  padding-inline: 1rem;
-  font-size: 1.2rem;
-  cursor: pointer;
-}

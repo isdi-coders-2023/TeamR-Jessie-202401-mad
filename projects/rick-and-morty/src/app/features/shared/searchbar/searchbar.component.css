@@ -1,6 +1,6 @@
 .search {
   display: flex;
-  width: 250px;
+  width: 280px;
   margin-block: 2rem 1rem;
 }
 
@@ -15,10 +15,17 @@
 
 .search-btn {
   flex: 1 auto;
+  max-width: 50px;
   border: 0;
   border-top-right-radius: 1rem;
   border-bottom-right-radius: 1rem;
   font-size: 1.2rem;
   background-color: var(--bright-green);
   cursor: pointer;
+}
+
+@media (width > 500px) {
+  .search {
+    width: 500px;
+  }
 }
