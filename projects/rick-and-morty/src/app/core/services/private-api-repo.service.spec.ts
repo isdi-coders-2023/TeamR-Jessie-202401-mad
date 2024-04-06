@@ -80,7 +80,7 @@ describe('PrivateApiRepoService', () => {
 
   it('should delete character via API', () => {
     const testId = 1;
-    service.deleteCharacterUrl(testId).subscribe();
+    service.deleteCharacter(testId).subscribe();
     const req = httpMock.expectOne(`http://localhost:3000/favorites/${testId}`);
     expect(req.request.method).toBe('DELETE');
     req.flush({});

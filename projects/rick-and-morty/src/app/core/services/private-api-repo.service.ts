@@ -31,7 +31,7 @@ export class PrivateApiRepoService {
     return this.http.post<Character>(this.privUrl, fItem);
   }
 
-  deleteCharacterUrl(id: number): Observable<Character> {
+  deleteCharacter(id: number): Observable<Character> {
     const url = `${this.privUrl}/${id}`;
     return this.http.delete<Character>(url);
   }

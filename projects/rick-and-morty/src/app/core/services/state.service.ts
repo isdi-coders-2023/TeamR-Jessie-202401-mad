@@ -13,12 +13,6 @@ export class StateService {
   private privateList$: BehaviorSubject<Character[]> = new BehaviorSubject<
     Character[]
   >([]);
-  // private episodeList$: BehaviorSubject<Episode[]> = new BehaviorSubject<
-  //   Episode[]
-  // >([]);
-  // private locationList$: BehaviorSubject<Location[]> = new BehaviorSubject<
-  //   Location[]
-  // >([]);
 
   constructor(
     private ApiRepoSrv: PublicApiRepoService,
@@ -99,6 +93,9 @@ export class StateService {
       gender?: string;
     }
   ) {
+    if (this.ApiRepoSrv.page <= 1) {
+      return;
+    }
     const { status = '', species = '', gender = '' } = filters;
     switch (dataType) {
       case 'character':
@@ -112,10 +109,15 @@ export class StateService {
   }
 
   deleteCharacter(id: number) {
-    this.PrivateApiRepoSrv.deleteCharacterUrl(id).subscribe(() => {
-      this.PrivateApiRepoSrv.getPrivateData().subscribe((data) => {
-        this.privateList$.next(data);
-      });
+    this.PrivateApiRepoSrv.deleteCharacter(id).subscribe({
+      next: () => {
+        this.PrivateApiRepoSrv.getPrivateData().subscribe((data) => {
+          this.privateList$.next(data);
+        });
+      },
+      error: (error) => {
+        console.error('Error deleting character:', error);
+      },
     });
   }
 

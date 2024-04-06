@@ -22,7 +22,7 @@ export class PublicApiRepoService {
     status: string = '',
     species: string = '',
     gender: string = ''
-  ) {
+  ): Observable<CharacterList> {
     return this.http.get<CharacterList>(
       `${this.urlBase}/character?page=${this.page}&status=${status}&species=${species}&gender=${gender}`
     );
