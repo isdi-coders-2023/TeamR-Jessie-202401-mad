@@ -8,7 +8,7 @@ import { LocationCardComponent } from '../location-card/location-card.component'
   standalone: true,
   template: ` <ul class="location-list">
     @for (location of LocationList; track $index) {
-    <jessie-location-card />
+    <jessie-location-card [locationInfo]="location"/>
     }
   </ul>`,
   styleUrl: './location-list.component.css',

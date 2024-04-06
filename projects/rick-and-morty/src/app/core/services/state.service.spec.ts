@@ -1,9 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
 import { StateService } from './state.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import {
+  HttpClientTestingModule,
+  HttpTestingController,
+} from '@angular/common/http/testing';
 import { PrivateApiRepoService } from './private-api-repo.service';
-import { Character } from '../model/model';
+import { AnyList, Character } from '../model/model';
 import { BehaviorSubject, of } from 'rxjs';
 import { PublicApiRepoService } from './public-api-repo.service';
 import { routes } from '../../app.routes';
@@ -12,6 +15,7 @@ describe('StateService', () => {
   let stateService: StateService;
   let publicApiServiceSpy: jasmine.SpyObj<PublicApiRepoService>;
   let privateApiRepoServiceSpy: jasmine.SpyObj<PrivateApiRepoService>;
+  let publicApiRepoService: PublicApiRepoService;
 
   beforeEach(() => {
     const publicSpy = jasmine.createSpyObj('PublicApiRepoService', [
@@ -203,7 +207,7 @@ describe('StateService', () => {
       expect(data).toContain(characterToAdd);
     });
   });
-
+  
   it('should set routes', () => {
     const expectedRoutes = routes
       .filter((route) => route.path !== '**' && route.path !== '')
