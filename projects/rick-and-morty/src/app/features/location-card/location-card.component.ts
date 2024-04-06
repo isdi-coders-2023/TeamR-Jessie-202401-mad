@@ -6,21 +6,13 @@ import { Location } from '../../core/model/model';
   standalone: true,
   imports: [],
   template: `
-  <li>
-    <ul>
-      <li>
-        <ul class="location-name-container">
-          <li class="location-name">{{ locationInfo.name }}</li>
-        </ul>
-      </li>
-      <li>
-        <ul class="location-container">
-          <li>Type {{ locationInfo.type }}</li>
-        </ul>
-      </li>
-      <li class="episode-airDate">Dimension {{ locationInfo.dimension }}</li>
-    </ul>
-  </li>
+    <li class="location-card">
+      <ul>
+        <li class="location-name">{{ locationInfo.name }}</li>
+        <li>Type {{ locationInfo.type }}</li>
+        <li class="episode-airDate">Dimension {{ locationInfo.dimension }}</li>
+      </ul>
+    </li>
   `,
   styleUrl: './location-card.component.css',
 })

@@ -1,44 +1,54 @@
-footer{
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding-inline: 5vw;
-padding-block: 3rem;
-background-color: #6BCA50;
-font-family: 'Creepster';
-height: 20vh;
-width: 100vw;
-div{
-  display: flex;
-  height: 8vh;
-}
+:host {
+  width: 100%;
+  margin-block-start: 5rem;
 }
 
-.team-footer{
+footer {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  background-color: #6bca50;
+  font-family: 'Creepster';
+  padding-inline: 3rem;
+  min-height: 100px;
+
+  img {
+    margin-block-start: 1rem;
+  }
+}
+
+.team-footer {
   display: flex;
   gap: 0.5rem;
   text-wrap: nowrap;
   align-items: center;
-  font-size: 24px;
-}
-a{
-  color:#E4F960;
-  text-decoration: none;
-  -webkit-text-stroke:1px #004B00;
+  font-size: 2rem;
+
+  h2 {
+    font-size: 1.8rem;
+    letter-spacing: 0.1rem;
+  }
 }
 
-@media (width > 600px) {
-  footer{
-    padding-inline: 10vh;
+a {
+  color: #e4f960;
+  text-decoration: none;
+  -webkit-text-stroke: 1px #004b00;
+}
+
+@media (width > 700px) {
+  footer {
+    flex-direction: row;
+
+    img {
+      margin-block-start: 0rem;
+    }
   }
 }
-@media (width > 800px) {
-  footer{
-    padding-inline: 15vh;
-  }
-}
-@media (width > 1000px) {
-  footer{
-    padding-inline: 20vh;
+
+@media (width > 1200px) {
+  footer {
+    padding-inline: 10rem;
   }
 }

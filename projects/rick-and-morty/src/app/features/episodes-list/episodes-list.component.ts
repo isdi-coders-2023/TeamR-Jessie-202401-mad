@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Episode } from '../../core/model/model';
 import { StateService } from '../../core/services/state.service';
 import { EpisodeCardComponent } from '../episode-card/episode-card.component';
@@ -8,19 +8,14 @@ import { EpisodeCardComponent } from '../episode-card/episode-card.component';
   standalone: true,
   imports: [EpisodeCardComponent],
   template: ` <ul class="episode-list">
-    @for (episode of episodesList; track $index) {
+    @for (episode of episodeList; track $index) {
     <jessie-episode-card [episodeInfo]="episode" />
     }
   </ul>`,
   styleUrl: './episodes-list.component.css',
 })
-export class EpisodesListComponent implements OnInit {
-  episodesList!: Episode[];
-  constructor(private stateSrv: StateService) {}
+export class EpisodesListComponent {
+  @Input() episodeList!: Episode[];
 
-  ngOnInit(): void {
-    this.stateSrv.getAnyData('episode').subscribe((episodesList) => {
-      this.episodesList = episodesList as Episode[];
-    });
-  }
+  constructor(private stateSrv: StateService) {}
 }

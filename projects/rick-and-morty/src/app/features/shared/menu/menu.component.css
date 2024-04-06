@@ -17,11 +17,11 @@ a {
   transition: 0.25s color;
 
   &:hover {
-    color: var(--bright-green);
+    color: var(--yellow);
   }
 }
 
-@media (width > 500px) {
+@media (width > 1000px) {
   nav ul {
     flex-direction: row;
     gap: 3rem;

@@ -1,27 +1,18 @@
-:host {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 450px;
-  height: 100px;
+.episode-card {
+  width: 300px;
+  min-height: 110px;
   border-radius: 1rem;
   background-color: var(--dark-green);
   padding-block: 1rem;
   padding-inline: 1rem;
   color: white;
-  gap: 5px;
+  gap: 1rem;
 }
 
-:root {
-  li:not(:first-child) {
-    color: white;
-  }
-}
-
-.episode-name-container {
+ul {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .episode-name {
