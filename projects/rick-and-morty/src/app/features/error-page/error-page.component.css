@@ -1,0 +1,33 @@
+.error-message {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.error-message img {
+  width: 400px;
+  margin-bottom: 10px;
+  align-self: center;
+}
+
+.error-message h2 {
+  font-size: 50px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.error-message p {
+  font-size: 18px;
+  color: white;
+}
+
+.btn-go-back {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

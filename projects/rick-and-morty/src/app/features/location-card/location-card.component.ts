@@ -5,11 +5,23 @@ import { Location } from '../../core/model/model';
   selector: 'jessie-location-card',
   standalone: true,
   imports: [],
-  template: ` <li class="location-card">
+  template: `
+  <li>
     <ul>
-      <li class="location-name">{{ locationInfo.name }}</li>
+      <li>
+        <ul class="location-name-container">
+          <li class="location-name">{{ locationInfo.name }}</li>
+        </ul>
+      </li>
+      <li>
+        <ul class="location-container">
+          <li>Type {{ locationInfo.type }}</li>
+        </ul>
+      </li>
+      <li class="episode-airDate">Dimension {{ locationInfo.dimension }}</li>
     </ul>
-  </li>`,
+  </li>
+  `,
   styleUrl: './location-card.component.css',
 })
 export class LocationCardComponent {

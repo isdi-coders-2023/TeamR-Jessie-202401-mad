@@ -9,7 +9,8 @@ import { MenuOption } from '../../../core/model/menu-option';
   template: `
     <nav>
       <ul>
-        @for (item of items; track $index) { @if (item.path !== 'home') {
+        @for (item of items; track $index) { @if (item.path !== 'home' &&
+        item.path !== 'error' ) {
         <li>
           <a [routerLink]="'/' + item.path" routerLinkActive="active">{{
             item.title
