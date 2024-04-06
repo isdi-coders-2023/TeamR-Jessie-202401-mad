@@ -12,9 +12,9 @@ fdescribe('ErrorPageComponent', () => {
     await TestBed.configureTestingModule({
       imports: [ErrorPageComponent, HttpClientModule, RouterTestingModule],
     }).compileComponents();
- 
+
   fixture = TestBed.createComponent(ErrorPageComponent);
-  component = fixture.componentInstance; 
+  component = fixture.componentInstance;
   fixture.detectChanges();
  })
 

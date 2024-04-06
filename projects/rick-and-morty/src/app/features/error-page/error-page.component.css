@@ -69,7 +69,6 @@ a{
 @media (width > 1000px) {
   section{flex-direction: row;
   justify-content: space-around;
-  
+
   }
 }
-

@@ -5,7 +5,7 @@ import { FooterComponent } from "../shared/footer/footer.component";
 @Component({
     selector: 'jessie-error-page',
     standalone: true,
-    template: ` 
+    template: `
   <jessie-header />
     <section>
       <div class="error-img">
