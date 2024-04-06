@@ -84,7 +84,7 @@ export class StateService {
         break;
     }
   }
-  
+
   previousData(
     dataType: string,
     filters: {
