@@ -6,6 +6,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-block-start: 0.5rem;
+
+  a {
+    padding-block-start: 0.5rem;
+  }
 }
 
 ul {
@@ -33,13 +38,13 @@ img {
   z-index: 2;
 }
 
-@media (width > 500px) {
+@media (width > 1000px) {
   .ham-menu {
     display: none;
   }
 }
 
-@media (width < 500px) {
+@media (width < 1000px) {
   .desktop {
     display: none;
   }

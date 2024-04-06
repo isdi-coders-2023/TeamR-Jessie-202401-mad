@@ -11,7 +11,7 @@ import { StateService } from '../../../core/services/state.service';
     <header>
       <nav class="header-nav">
         <a href="index.html"
-          ><img src="../favicon.svg" alt="Home logo" width="100"
+          ><img src="../favicon.svg" alt="Home logo" width="75"
         /></a>
         <jessie-menu [items]="menuOptions" class="header-menu desktop" />
         @if (menuVisible) {

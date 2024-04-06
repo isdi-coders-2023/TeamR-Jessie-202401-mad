@@ -7,11 +7,11 @@ import { Component } from '@angular/core';
   template: `
     <footer>
       <div class="logo-footer">
-        <img src="./assets/img/logo-footer.svg" alt="Footer logo" />
+        <img src="./assets/img/logo-footer.svg" alt="Footer logo" width="150" />
       </div>
       <div>
         <span class="team-footer">
-          <h5>MADE BY:</h5>
+          <h2>MADE BY:</h2>
           <p>
             <a href="##">Angelo </a> / <a href="##"> Diego </a>/<a href="##">
               Kevin

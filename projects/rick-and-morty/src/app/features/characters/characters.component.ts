@@ -7,11 +7,13 @@ import { Character } from '../../core/model/model';
 import { SearchbarComponent } from '../shared/searchbar/searchbar.component';
 import { FilterComponent } from '../shared/filter/filter.component';
 import { FilterFormComponent } from '../shared/filter-form/filter-form.component';
+import { FooterComponent } from '../shared/footer/footer.component';
 
 @Component({
   selector: 'jessie-characters',
   standalone: true,
-  template: ` <jessie-header />
+  template: `
+    <jessie-header />
     <jessie-searchbar />
     <jessie-filter-form
       [properties]="characterProperties"
@@ -22,7 +24,9 @@ import { FilterFormComponent } from '../shared/filter-form/filter-form.component
       [dataType]="'character'"
       [filteredValues]="filteredValues"
     />
-    <jessie-character-list [characterList]="characterList" />`,
+    <jessie-character-list [characterList]="characterList" />
+    <jessie-footer />
+  `,
   styleUrl: './characters.component.css',
   imports: [
     CharacterListComponent,
@@ -31,6 +35,7 @@ import { FilterFormComponent } from '../shared/filter-form/filter-form.component
     SearchbarComponent,
     FilterComponent,
     FilterFormComponent,
+    FooterComponent,
   ],
 })
 export default class CharactersComponent implements OnInit {
