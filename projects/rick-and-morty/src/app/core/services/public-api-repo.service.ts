@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AnyList } from '../model/model';
+import { AnyList, CharacterList } from '../model/model';
 
 @Injectable({
   providedIn: 'root',
@@ -15,6 +15,16 @@ export class PublicApiRepoService {
   getData(dataType: string): Observable<AnyList> {
     return this.http.get<AnyList>(
       `${this.urlBase}/${dataType}?page=${this.page}`
+    );
+  }
+
+  getFilteredCharacterData(
+    status: string = '',
+    species: string = '',
+    gender: string = ''
+  ): Observable<CharacterList> {
+    return this.http.get<CharacterList>(
+      `${this.urlBase}/character?page=${this.page}&status=${status}&species=${species}&gender=${gender}`
     );
   }
 }

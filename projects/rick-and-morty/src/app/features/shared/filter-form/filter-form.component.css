@@ -1,0 +1,32 @@
+.filter-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-block-end: 2rem;
+}
+
+.filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 300px;
+  gap: 0.5rem;
+}
+
+.filter-btn {
+  background-color: var(--bright-green);
+  width: 150px;
+  border: 0;
+  border-radius: 2rem;
+  margin-block: 0.5rem;
+  padding-block: 0.5rem;
+  padding-inline: 1rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+@media (width > 500px) {
+  .filter-group {
+    width: 500px;
+  }
+}

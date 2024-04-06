@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Character } from '../model/model';
+import { Character, CharacterCreateDto } from '../model/model';
 
 @Injectable({
   providedIn: 'root',
@@ -27,10 +27,11 @@ export class PrivateApiRepoService {
   }
 
   createCharacter(item: Character): Observable<Character> {
-    return this.http.post<Character>(this.privUrl, item);
+    const fItem: CharacterCreateDto = { ...item, id: String(item.id) };
+    return this.http.post<Character>(this.privUrl, fItem);
   }
 
-  deleteCharacterUrl(id: number): Observable<Character> {
+  deleteCharacter(id: number): Observable<Character> {
     const url = `${this.privUrl}/${id}`;
     return this.http.delete<Character>(url);
   }

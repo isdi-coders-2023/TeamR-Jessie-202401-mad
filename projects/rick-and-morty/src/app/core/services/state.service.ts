@@ -13,12 +13,6 @@ export class StateService {
   private privateList$: BehaviorSubject<Character[]> = new BehaviorSubject<
     Character[]
   >([]);
-  // private episodeList$: BehaviorSubject<Episode[]> = new BehaviorSubject<
-  //   Episode[]
-  // >([]);
-  // private locationList$: BehaviorSubject<Location[]> = new BehaviorSubject<
-  //   Location[]
-  // >([]);
 
   constructor(
     private ApiRepoSrv: PublicApiRepoService,
@@ -37,6 +31,18 @@ export class StateService {
     });
   }
 
+  fetchFilteredCharacterData(
+    status: string = '',
+    species: string = '',
+    gender: string = ''
+  ) {
+    this.ApiRepoSrv.getFilteredCharacterData(status, species, gender).subscribe(
+      (data) => {
+        this.anyList$.next(data.results);
+      }
+    );
+  }
+
   getAnyData(dataType: string) {
     this.fetchData(dataType);
     return this.anyList$.asObservable();
@@ -47,29 +53,71 @@ export class StateService {
     return this.privateList$.asObservable();
   }
 
-  nextData(dataType: string) {
-    if (this.ApiRepoSrv.page < 42) {
-      this.ApiRepoSrv.page++;
-      this.ApiRepoSrv.getData(dataType);
-      this.fetchData(dataType);
+  getFilteredCharacterData(filters: {
+    status?: string;
+    species?: string;
+    gender?: string;
+  }) {
+    this.ApiRepoSrv.page = 1;
+    const { status = '', species = '', gender = '' } = filters;
+    this.fetchFilteredCharacterData(status, species, gender);
+    return this.anyList$.asObservable();
+  }
+
+  nextData(
+    dataType: string,
+    filters: {
+      status?: string;
+      species?: string;
+      gender?: string;
+    }
+  ) {
+    const { status = '', species = '', gender = '' } = filters;
+    switch (dataType) {
+      case 'character':
+        this.ApiRepoSrv.page++;
+        this.ApiRepoSrv.getFilteredCharacterData(status, species, gender);
+        this.fetchFilteredCharacterData(status, species, gender);
+        break;
+
+      default:
+        break;
     }
   }
 
-  previousData(dataType: string) {
-    if (this.ApiRepoSrv.page > 1) {
-      this.ApiRepoSrv.page--;
-      this.ApiRepoSrv.getData(dataType);
-      this.fetchData(dataType);
-    } else {
-      throw new Error('Cannot go back'); // Throw an error if the condition doesn't apply
+  previousData(
+    dataType: string,
+    filters: {
+      status?: string;
+      species?: string;
+      gender?: string;
+    }
+  ) {
+    if (this.ApiRepoSrv.page <= 1) {
+      return;
+    }
+    const { status = '', species = '', gender = '' } = filters;
+    switch (dataType) {
+      case 'character':
+        this.ApiRepoSrv.page--;
+        this.ApiRepoSrv.getFilteredCharacterData(status, species, gender);
+        this.fetchFilteredCharacterData(status, species, gender);
+        break;
+      default:
+        break;
     }
   }
 
   deleteCharacter(id: number) {
-    this.PrivateApiRepoSrv.deleteCharacterUrl(id).subscribe(() => {
-      this.PrivateApiRepoSrv.getPrivateData().subscribe((data) => {
-        this.privateList$.next(data);
-      });
+    this.PrivateApiRepoSrv.deleteCharacter(id).subscribe({
+      next: () => {
+        this.PrivateApiRepoSrv.getPrivateData().subscribe((data) => {
+          this.privateList$.next(data);
+        });
+      },
+      error: (error) => {
+        console.error('Error deleting character:', error);
+      },
     });
   }
 
@@ -88,5 +136,48 @@ export class StateService {
         title: route.title as string,
         path: route.path as string,
       }));
+  }
+
+  filterProperties(dataType: string, property: string): boolean {
+    switch (dataType) {
+      case 'character':
+        if (
+          property === 'status' ||
+          property === 'gender' ||
+          property === 'species'
+        ) {
+          return true;
+        }
+        return false;
+      default:
+        return false;
+    }
+    // Faltan los otros dataTypes
+  }
+
+  filterPropertyOptions(dataType: string, name: string) {
+    switch (dataType) {
+      case 'character':
+        if (name === 'status') {
+          return ['Alive', 'Dead', 'unknown'];
+        } else if (name === 'species') {
+          return [
+            'Human',
+            'Humanoid',
+            'Animal',
+            'Alien',
+            'Disease',
+            'Mythological Creature',
+            'Robot',
+            'unknown',
+          ];
+        } else if (name === 'gender') {
+          return ['Male', 'Female', 'unknown'];
+        }
+        return ['unknown'];
+      default:
+        return ['unknown'];
+    }
+    // Faltan los otros dataTypes
   }
 }
