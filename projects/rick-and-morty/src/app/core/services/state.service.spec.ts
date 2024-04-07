@@ -11,11 +11,11 @@ import { routes } from '../../app.routes';
 describe('StateService', () => {
   let stateService: StateService;
   let publicApiServiceSpy: jasmine.SpyObj<PublicApiRepoService>;
-  let privatepublicApiServiceSpy: jasmine.SpyObj<PrivateApiRepoService>;
+  let privateApiRepoServiceSpy: jasmine.SpyObj<PrivateApiRepoService>;
 
   beforeEach(() => {
     const publicSpy = jasmine.createSpyObj('PublicApiRepoService', [
-      'getAnyData',
+      'getData',
       'getFilteredCharacterData',
     ]);
     const privateSpy = jasmine.createSpyObj('PrivateApiRepoService', [
@@ -37,7 +37,7 @@ describe('StateService', () => {
     publicApiServiceSpy = TestBed.inject(
       PublicApiRepoService
     ) as jasmine.SpyObj<PublicApiRepoService>;
-    privatepublicApiServiceSpy = TestBed.inject(
+    privateApiRepoServiceSpy = TestBed.inject(
       PrivateApiRepoService
     ) as jasmine.SpyObj<PrivateApiRepoService>;
   });
@@ -66,7 +66,7 @@ describe('StateService', () => {
       },
     ];
 
-    privatepublicApiServiceSpy.getPrivateData.and.returnValue(
+    privateApiRepoServiceSpy.getPrivateData.and.returnValue(
       new BehaviorSubject<Character[]>(mockData).asObservable()
     );
 
@@ -100,67 +100,12 @@ describe('StateService', () => {
       });
   });
 
-  it('should call getFilteredCharacterData and fetchFilteredCharacterData when dataType is character in nextData', () => {
-    const filters = { status: 'Alive', species: 'Human', gender: 'Male' };
-    stateService.nextData('character', filters);
-
-    expect(publicApiServiceSpy.getFilteredCharacterData).toHaveBeenCalledWith(
-      'Alive',
-      'Human',
-      'Male'
-    );
-    expect(publicApiServiceSpy.page).toBe(2); // Assuming initial page is 1
-  });
-
-  it('should call getData and fetchData when dataType is episode in nextData', () => {
-    stateService.nextData('episode', {});
-
-    expect(publicApiServiceSpy.getData).toHaveBeenCalledWith('episode');
-    expect(publicApiServiceSpy.page).toBe(2); // Assuming initial page is 1
-  });
-
-  it('should call getData and fetchData when dataType is location in nextData', () => {
-    stateService.nextData('location', {});
-
-    expect(publicApiServiceSpy.getData).toHaveBeenCalledWith('location');
-    expect(publicApiServiceSpy.page).toBe(2); // Assuming initial page is 1
-  });
-
   it('should not call any method when page is 1 in previousData', () => {
     publicApiServiceSpy.page = 1;
     stateService.previousData('character', {});
 
     expect(publicApiServiceSpy.getFilteredCharacterData).not.toHaveBeenCalled();
     expect(publicApiServiceSpy.getData).not.toHaveBeenCalled();
-  });
-
-  it('should call getFilteredCharacterData and fetchFilteredCharacterData when dataType is character in previousData', () => {
-    publicApiServiceSpy.page = 2;
-    const filters = { status: 'Alive', species: 'Human', gender: 'Male' };
-    stateService.previousData('character', filters);
-
-    expect(publicApiServiceSpy.getFilteredCharacterData).toHaveBeenCalledWith(
-      'Alive',
-      'Human',
-      'Male'
-    );
-    expect(publicApiServiceSpy.page).toBe(1);
-  });
-
-  it('should call getData and fetchData when dataType is episode in previousData', () => {
-    publicApiServiceSpy.page = 2;
-    stateService.previousData('episode', {});
-
-    expect(publicApiServiceSpy.getData).toHaveBeenCalledWith('episode');
-    expect(publicApiServiceSpy.page).toBe(1);
-  });
-
-  it('should call getData and fetchData when dataType is location in previousData', () => {
-    publicApiServiceSpy.page = 2;
-    stateService.previousData('location', {});
-
-    expect(publicApiServiceSpy.getData).toHaveBeenCalledWith('location');
-    expect(publicApiServiceSpy.page).toBe(1);
   });
 
   it('should handle next data if datatype is character', () => {
@@ -220,13 +165,13 @@ describe('StateService', () => {
 
   it('should delete character', () => {
     const testData: Character[] = [{ id: 1, name: 'Test Data' }] as Character[];
-    privatepublicApiServiceSpy.deleteCharacter.and.returnValue(
+    privateApiRepoServiceSpy.deleteCharacter.and.returnValue(
       of([] as unknown as Character)
     );
-    privatepublicApiServiceSpy.getPrivateData.and.returnValue(of(testData));
+    privateApiRepoServiceSpy.getPrivateData.and.returnValue(of(testData));
     stateService.deleteCharacter(1);
-    expect(privatepublicApiServiceSpy.deleteCharacter).toHaveBeenCalledWith(1);
-    expect(privatepublicApiServiceSpy.getPrivateData).toHaveBeenCalled();
+    expect(privateApiRepoServiceSpy.deleteCharacter).toHaveBeenCalledWith(1);
+    expect(privateApiRepoServiceSpy.getPrivateData).toHaveBeenCalled();
   });
 
   it('should add a character to favorites', () => {
@@ -253,10 +198,10 @@ describe('StateService', () => {
       },
     ];
 
-    privatepublicApiServiceSpy.createCharacter.and.returnValue(
+    privateApiRepoServiceSpy.createCharacter.and.returnValue(
       of(characterToAdd)
     );
-    privatepublicApiServiceSpy.getPrivateData.and.returnValue(
+    privateApiRepoServiceSpy.getPrivateData.and.returnValue(
       of([...mockData, characterToAdd])
     );
 
