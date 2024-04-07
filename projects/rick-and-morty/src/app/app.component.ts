@@ -10,7 +10,7 @@ import { FooterComponent } from './features/shared/footer/footer.component';
       <router-outlet />
     </main>
   `,
-  styleUrl: './app.component.css',
+  styles: ``,
   imports: [RouterOutlet, FooterComponent],
 })
 export class AppComponent {}

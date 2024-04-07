@@ -9,7 +9,7 @@ footer {
   flex-direction: column;
   align-items: center;
   background-color: #6bca50;
-  font-family: 'Creepster';
+  font-family: 'Creepster', monospace;
   padding-inline: 3rem;
   min-height: 100px;
 

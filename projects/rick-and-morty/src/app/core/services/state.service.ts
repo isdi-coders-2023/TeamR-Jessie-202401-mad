@@ -152,7 +152,6 @@ export class StateService {
       default:
         return false;
     }
-    // Faltan los otros dataTypes
   }
 
   filterPropertyOptions(dataType: string, name: string) {
@@ -178,6 +177,5 @@ export class StateService {
       default:
         return ['unknown'];
     }
-    // Faltan los otros dataTypes
   }
 }
