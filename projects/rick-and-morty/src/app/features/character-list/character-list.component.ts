@@ -13,7 +13,7 @@ import { StateService } from '../../core/services/state.service';
         @if (isCharacterPriv) {
         <i
           class="fa-solid fa-xmark close-btn"
-          tabindex="0"
+          tabindex="-1"
           (click)="deleteCharacter(character.id)"
           (keyup.enter)="deleteCharacter(character.id)"
         ></i>
@@ -22,7 +22,7 @@ import { StateService } from '../../core/services/state.service';
           class="fa-{{
             !character.favorite ? 'regular' : 'solid'
           }} fa-heart favorite-btn"
-          tabindex="0"
+          tabindex="-1"
           (click)="addFavorite(character)"
           (keyup.enter)="addFavorite(character)"
         ></i>

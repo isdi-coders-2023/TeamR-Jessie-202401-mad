@@ -11,7 +11,7 @@ import { Component } from '@angular/core';
         class="search-bar"
         placeholder="Looking for someone?"
       />
-      <button type="submit" class="search-btn">
+      <button type="submit" class="search-btn" aria-label="search-btn">
         <i class="fa fa-search"></i>
       </button>
     </div>

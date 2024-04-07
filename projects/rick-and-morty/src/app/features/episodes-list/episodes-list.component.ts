@@ -9,7 +9,9 @@ import { EpisodeCardComponent } from '../episode-card/episode-card.component';
   imports: [EpisodeCardComponent],
   template: ` <ul class="episode-list">
     @for (episode of episodeList; track $index) {
-    <jessie-episode-card [episodeInfo]="episode" />
+    <li>
+      <jessie-episode-card [episodeInfo]="episode" />
+    </li>
     }
   </ul>`,
   styleUrl: './episodes-list.component.css',
