@@ -8,6 +8,8 @@ import { SearchbarComponent } from '../shared/searchbar/searchbar.component';
 import { FilterComponent } from '../shared/filter/filter.component';
 import { FilterFormComponent } from '../shared/filter-form/filter-form.component';
 import { FooterComponent } from '../shared/footer/footer.component';
+import { AddButtonComponent } from '../add-button/add-button.component';
+import { ScrollTopComponent } from '../shared/scroll-top/scroll-top.component';
 
 @Component({
   selector: 'jessie-characters',
@@ -20,11 +22,15 @@ import { FooterComponent } from '../shared/footer/footer.component';
       [dataType]="'character'"
       (filterValuesChange)="onFilterValuesChange($event)"
     />
-    <jessie-pagination
-      [dataType]="'character'"
-      [filteredValues]="filteredValues"
-    />
+    <div>
+      <jessie-pagination
+        [dataType]="'character'"
+        [filteredValues]="filteredValues"
+      />
+      <jessie-add-button />
+    </div>
     <jessie-character-list [characterList]="characterList" />
+    <jessie-scroll-top />
     <jessie-footer />
   `,
   styleUrl: './characters.component.css',
@@ -36,6 +42,8 @@ import { FooterComponent } from '../shared/footer/footer.component';
     FilterComponent,
     FilterFormComponent,
     FooterComponent,
+    AddButtonComponent,
+    ScrollTopComponent,
   ],
 })
 export default class CharactersComponent implements OnInit {

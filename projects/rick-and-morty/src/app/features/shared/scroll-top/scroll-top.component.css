@@ -1,0 +1,22 @@
+.go-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-block: 4rem;
+  cursor: pointer;
+
+  i {
+    position: absolute;
+    font-size: 4rem;
+    color: #041401;
+    background-color: var(--bright-green);
+    z-index: 2;
+  }
+}
+
+@media (width > 1200px) {
+  :host {
+    display: none;
+  }
+}
