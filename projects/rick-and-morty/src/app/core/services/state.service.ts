@@ -79,7 +79,16 @@ export class StateService {
         this.ApiRepoSrv.getFilteredCharacterData(status, species, gender);
         this.fetchFilteredCharacterData(status, species, gender);
         break;
-
+      case 'episode':
+        this.ApiRepoSrv.page++;
+        this.ApiRepoSrv.getData('episode');
+        this.fetchData('episode');
+        break;
+      case 'location':
+        this.ApiRepoSrv.page++;
+        this.ApiRepoSrv.getData('location');
+        this.fetchData('location');
+        break;
       default:
         break;
     }
@@ -102,6 +111,16 @@ export class StateService {
         this.ApiRepoSrv.page--;
         this.ApiRepoSrv.getFilteredCharacterData(status, species, gender);
         this.fetchFilteredCharacterData(status, species, gender);
+        break;
+      case 'episode':
+        this.ApiRepoSrv.page--;
+        this.ApiRepoSrv.getData('episode');
+        this.fetchData('episode');
+        break;
+      case 'location':
+        this.ApiRepoSrv.page--;
+        this.ApiRepoSrv.getData('location');
+        this.fetchData('location');
         break;
       default:
         break;

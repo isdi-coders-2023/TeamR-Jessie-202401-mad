@@ -15,7 +15,7 @@ describe('StateService', () => {
 
   beforeEach(() => {
     const publicSpy = jasmine.createSpyObj('PublicApiRepoService', [
-      'getAnyData',
+      'getData',
       'getFilteredCharacterData',
     ]);
     const privateSpy = jasmine.createSpyObj('PrivateApiRepoService', [
@@ -100,7 +100,15 @@ describe('StateService', () => {
       });
   });
 
-  it('should handle next data', () => {
+  it('should not call any method when page is 1 in previousData', () => {
+    publicApiServiceSpy.page = 1;
+    stateService.previousData('character', {});
+
+    expect(publicApiServiceSpy.getFilteredCharacterData).not.toHaveBeenCalled();
+    expect(publicApiServiceSpy.getData).not.toHaveBeenCalled();
+  });
+
+  it('should handle next data if datatype is character', () => {
     const testData: Character[] = [{ id: 1, name: 'Test Data' }] as Character[];
     publicApiServiceSpy.getFilteredCharacterData.and.returnValue(
       of({
@@ -122,7 +130,7 @@ describe('StateService', () => {
     );
   });
 
-  it('should handle previous data', () => {
+  it('should handle previous data if datatype is character', () => {
     const testData: Character[] = [{ id: 1, name: 'Test Data' }] as Character[];
     publicApiServiceSpy.getFilteredCharacterData.and.returnValue(
       of({
