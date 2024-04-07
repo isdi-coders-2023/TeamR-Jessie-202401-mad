@@ -51,9 +51,6 @@ li {
 
   li a {
     font-size: 2rem;
-  }
-
-  li a {
     color: var(--black);
   }
 
