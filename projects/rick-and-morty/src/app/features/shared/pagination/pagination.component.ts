@@ -7,13 +7,21 @@ import { StateService } from '../../../core/services/state.service';
   imports: [],
   template: `
     <div class="pagination-btns">
-      <button class="pag-btn pag-previous" (click)="prevPage(dataType)">
+      <button
+        class="pag-btn pag-previous"
+        aria-label="Next page button"
+        (click)="prevPage(dataType)"
+      >
         <i
           class="fa-solid fa-arrow-right fa-rotate-180"
           style="color: #092429;"
         ></i>
       </button>
-      <button class="pag-btn pag-next" (click)="nextPage(dataType)">
+      <button
+        class="pag-btn pag-next"
+        aria-label="Next page button"
+        (click)="nextPage(dataType)"
+      >
         <i class="fa-solid fa-arrow-right" style="color: #092429;"></i>
       </button>
     </div>

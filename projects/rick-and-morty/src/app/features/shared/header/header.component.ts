@@ -19,17 +19,17 @@ import { StateService } from '../../../core/services/state.service';
         }
         <i
           class="fa-solid fa-bars ham-menu"
+          tabindex="-1"
           style="color: #48e117;"
           (click)="menuVisible ? (menuVisible = false) : (menuVisible = true)"
           (keyup.enter)="
             menuVisible ? (menuVisible = false) : (menuVisible = true)
           "
-          tabindex="0"
         ></i>
         @if (menuVisible) {
         <i
           class="fa-solid fa-xmark close-btn"
-          tabindex="0"
+          tabindex="-1"
           (click)="menuVisible ? (menuVisible = false) : (menuVisible = true)"
           (keyup.enter)="
             menuVisible ? (menuVisible = false) : (menuVisible = true)

@@ -9,7 +9,12 @@ import { StateService } from '../../../core/services/state.service';
   template: `
     <div class="filter">
       <label for="{{ name }}">{{ selected ? selected : name }}</label>
-      <select [name]="name" [(ngModel)]="selected" (change)="onValueChanged()">
+      <select
+        aria-label="Individual filter"
+        [name]="name"
+        [(ngModel)]="selected"
+        (change)="onValueChanged()"
+      >
         @for (option of options; track $index) {
         <option [value]="option">{{ option }}</option>
         }
