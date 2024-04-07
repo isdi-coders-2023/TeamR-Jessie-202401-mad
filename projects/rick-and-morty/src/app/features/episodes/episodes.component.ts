@@ -14,7 +14,7 @@ import { ScrollTopComponent } from '../shared/scroll-top/scroll-top.component';
   template: `
     <jessie-header />
     <jessie-searchbar />
-    <jessie-pagination [dataType]="'episode'" />
+    <jessie-pagination [dataType]="'episode'" [filteredValues]="{}" />
     <jessie-episodes-list [episodeList]="episodeList" />
     <jessie-scroll-top />
     <jessie-footer />

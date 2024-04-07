@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Location } from '../../core/model/model';
 import { StateService } from '../../core/services/state.service';
 import { LocationCardComponent } from '../location-card/location-card.component';
@@ -7,7 +7,7 @@ import { LocationCardComponent } from '../location-card/location-card.component'
   selector: 'jessie-location-list',
   standalone: true,
   template: ` <ul class="location-list">
-    @for (location of LocationList; track $index) {
+    @for (location of locationList; track $index) {
     <li>
       <jessie-location-card [locationInfo]="location" />
     </li>
@@ -16,14 +16,8 @@ import { LocationCardComponent } from '../location-card/location-card.component'
   styleUrl: './location-list.component.css',
   imports: [LocationCardComponent],
 })
-export class LocationListComponent implements OnInit {
-  LocationList!: Location[];
+export class LocationListComponent {
+  @Input() locationList!: Location[];
 
   constructor(private stateSrv: StateService) {}
-
-  ngOnInit(): void {
-    this.stateSrv.getAnyData('location').subscribe((locationsList) => {
-      this.LocationList = locationsList as Location[];
-    });
-  }
 }
