@@ -4,6 +4,7 @@ import { HeaderComponent } from '../shared/header/header.component';
 import { SearchbarComponent } from '../shared/searchbar/searchbar.component';
 import { PaginationComponent } from '../shared/pagination/pagination.component';
 import { FooterComponent } from '../shared/footer/footer.component';
+import { ScrollTopComponent } from '../shared/scroll-top/scroll-top.component';
 
 @Component({
   selector: 'jessie-locations',
@@ -13,6 +14,7 @@ import { FooterComponent } from '../shared/footer/footer.component';
     <jessie-searchbar />
     <jessie-pagination />
     <jessie-location-list />
+    <jessie-scroll-top />
     <jessie-footer />
   `,
   styleUrl: './location.component.css',
@@ -22,6 +24,7 @@ import { FooterComponent } from '../shared/footer/footer.component';
     SearchbarComponent,
     PaginationComponent,
     FooterComponent,
+    ScrollTopComponent,
   ],
 })
 export default class LocationComponent {}

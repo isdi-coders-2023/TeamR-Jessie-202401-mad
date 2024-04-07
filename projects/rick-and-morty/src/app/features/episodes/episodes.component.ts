@@ -6,6 +6,7 @@ import { PaginationComponent } from '../shared/pagination/pagination.component';
 import { Episode } from '../../core/model/model';
 import { StateService } from '../../core/services/state.service';
 import { FooterComponent } from '../shared/footer/footer.component';
+import { ScrollTopComponent } from '../shared/scroll-top/scroll-top.component';
 
 @Component({
   selector: 'jessie-episodes',
@@ -15,6 +16,7 @@ import { FooterComponent } from '../shared/footer/footer.component';
     <jessie-searchbar />
     <jessie-pagination [dataType]="'episode'" />
     <jessie-episodes-list [episodeList]="episodeList" />
+    <jessie-scroll-top />
     <jessie-footer />
   `,
   styleUrl: './episodes.component.css',
@@ -24,6 +26,7 @@ import { FooterComponent } from '../shared/footer/footer.component';
     SearchbarComponent,
     PaginationComponent,
     FooterComponent,
+    ScrollTopComponent,
   ],
 })
 export default class EpisodesComponent implements OnInit {
