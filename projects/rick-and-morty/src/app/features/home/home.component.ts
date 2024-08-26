@@ -28,7 +28,7 @@ import { StateService } from '../../core/services/state.service';
     <img
       class="background-img"
       src="./assets/img/background-img.png"
-      alt="Background image Rick"
+      alt="Background image de Rick"
     />
   `,
   styleUrl: './home.component.css',

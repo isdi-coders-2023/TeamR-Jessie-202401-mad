@@ -7,10 +7,10 @@ import { Component } from '@angular/core';
   template: ` <div class="error-message">
     <img src="./assets/img/error.png" alt="error img" />
     <h2>ERROR</h2>
-    <p>We Couldn't find the page you were looking for</p>
+    <p>We Couldn't find the page your were looking for</p>
     <a href="index.html"
       ><img src="./assets/img/img-go-back.png" alt="img btn back" width="100" />
-      GO BACK</a
+      GO TO BACK</a
     >
   </div>`,
   styleUrl: './error-page.component.css',
